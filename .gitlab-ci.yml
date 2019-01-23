@@ -1,0 +1,20 @@
+image: 172.16.1.22:5000/laravel-dock:fpm
+
+cache:
+  key: ${CI_COMMIT_REF_SLUG}
+  paths:
+    - vendor/
+
+codestyle:
+  stage: test
+  cache: {}
+  script:
+    - phpcs --standard=PSR2 --extensions=php app
+
+phpunit:
+  stage: test
+  script:
+    - composer install --prefer-dist --no-ansi --no-interaction --no-progress --no-scripts
+    - cp .env.example .env
+    - php artisan key:generate
+    - vendor/bin/phpunit --coverage-text --colors=never
