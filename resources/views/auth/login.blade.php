@@ -61,7 +61,6 @@
             <form method="POST" action="{{ route('login') }}" class="login-form">
                 @csrf
 
-                {{ $errors }}
                 <div class="panel panel-body">
                     <div class="text-center">
                         <div class="icon-object border-slate-300 text-slate-300"><i class="icon-reading"></i></div>

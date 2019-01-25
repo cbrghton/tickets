@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use Illuminate\Http\Request;
 
 class LoginController extends Controller
 {
@@ -20,18 +21,34 @@ class LoginController extends Controller
 
     use AuthenticatesUsers;
 
-    public function username()
-    {
-        return 'rfc';
-    }
-
-
     /**
      * Where to redirect users after login.
      *
      * @var string
      */
     protected $redirectTo = '/home';
+
+    /**
+     * Get the login username to be used by the controller.
+     *
+     * @return string
+     */
+
+    public function username()
+    {
+        return 'rfc';
+    }
+
+    /**
+     * Get the needed authorization credentials from the request.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return array
+     */
+    protected function credentials(Request $request)
+    {
+        return ['rfc' => $request->{$this->username()}, 'password' => $request->password, 'estatus' => 'ALTA'];
+    }
 
     /**
      * Create a new controller instance.
