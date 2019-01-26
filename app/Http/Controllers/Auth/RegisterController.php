@@ -53,7 +53,7 @@ class RegisterController extends Controller
             'username' => 'required|string|max:15|unique:users',
             'primer_apellido' => 'required|string|max:45',
             'segundo_apellido' => 'required|string|max:45',
-            'password' => 'required|string|min:6|confirmed',
+            'modulo' => 'required'
         ]);
     }
 
@@ -70,7 +70,9 @@ class RegisterController extends Controller
             'rfc' => $data['rfc'],
             'primer_apellido' => $data['primer_apellido'],
             'segundo_apellido' => $data['segundo_apellido'],
-            'password' => Hash::make($data['password']),
+            'password' => '0',
+            'estatus' => 'ALTA',
+            'modulo_id' => $data['modulo']
         ]);
     }
 }
