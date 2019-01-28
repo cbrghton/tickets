@@ -13,7 +13,6 @@ class HomeController extends Controller
      */
     public function __construct()
     {
-        dd(\Auth::guest());
         $this->middleware('auth');
     }
 

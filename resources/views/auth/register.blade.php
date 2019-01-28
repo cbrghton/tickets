@@ -67,7 +67,7 @@
         <div class="content-wrapper">
 
             <!-- Advanced login -->
-            <form action="index.html" class="login-form">
+            <form action="index.html" class="col-md-6">
                 <div class="panel panel-body">
                     <div class="text-center">
                         <h5 class="content-group">Registra una nueva cuenta
