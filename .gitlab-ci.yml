@@ -1,4 +1,4 @@
-image: 172.16.1.22:5000/laravel-dock:fpm
+image: 172.16.1.22:5000/laravel-dock:php-fpm
 
 cache:
   key: ${CI_COMMIT_REF_SLUG}
