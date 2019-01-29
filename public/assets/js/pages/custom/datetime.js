@@ -20,7 +20,7 @@ $(function () {
 
     window.setTimeout(function () {
        panel.unblock();
-    }, 1010);
+    }, 1100);
 
     let day = moment().format('d');
     let block;
