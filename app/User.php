@@ -33,4 +33,29 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    /**
+     * Genera la relación entre la tabla de Roles y de Usuarios
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     */
+    public function roles()
+    {
+        return $this->belongsToMany('App\Models\Role');
+    }
+
+    /*
+     * Verifica que tenga un rol asignado
+     *
+     * @param string
+     * @return boolean
+     */
+    public function hasRole($role)
+    {
+        if ($this->roles()->where('nombre', $role)->first()) {
+            return true;
+        }
+
+        return false;
+    }
 }
