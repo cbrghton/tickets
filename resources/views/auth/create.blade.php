@@ -59,6 +59,13 @@
             </div>
         </div>
 
+        <div class="col-lg-10 col-sm-10 col-md-10 col-xs-10">
+            <div class="form-group">
+                <label for="password"> Password  </label>
+                <input type="password" name="password"  class="form-control" placeholder="Password....">
+            </div>
+        </div>
+
 
 
         {!!Form::close()!!}
