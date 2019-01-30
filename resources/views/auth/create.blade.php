@@ -41,6 +41,14 @@
                  </div>
              </div>
 
+             <div class="col-lg-10 col-sm-10 col-md-10 col-xs-10">
+               <div class="form-group">
+                <label for="rfc"> RFC  </label>
+                <input type="text" name="rfc"  class="form-control" placeholder="RFC....">
+                 </div>
+              </div>
+
+
 
 
 
