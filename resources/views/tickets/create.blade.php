@@ -35,7 +35,12 @@
             </div>
         </div>
 
-
+        <div class="col-lg-10 col-sm-10 col-md-10 col-xs-10">
+            <div class="form-group">
+                <label for="descripcion">  Imagen  </label>
+                <input type="file" name="imagen" class="form-control" placeholder="Descripcion..">
+            </div>
+        </div>
 
         <div class="col-lg-6 col-sm-6 col-md-6 col-xs-6">
             <div class="form-group">
@@ -43,6 +48,7 @@
                 <button class="btn btn-danger" type="reset">Cancelar</button>
             </div>
         </div>
-    {!!Form::close()!!}
+
+        {!!Form::close()!!}
     </div>
 @endsection
