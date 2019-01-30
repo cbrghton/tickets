@@ -20,13 +20,21 @@
         {!!Form::open(array('url'=>'auth/index','method'=>'POST','autocomplete'=>'off'))!!}
         {{Form::token()}}
 
-        <div class="col-lg-10 col-sm-10 col-md-10 col-xs-10">
-
+             <div class="col-lg-10 col-sm-10 col-md-10 col-xs-10">
                 <div class="form-group">
                     <label for="nombre"> Nombre  </label>
                     <input type="text" name="nombre"  class="form-control" placeholder="Nombre....">
                 </div>
+             </div>
+
+              <div class="col-lg-10 col-sm-10 col-md-10 col-xs-10">
+                 <div class="form-group">
+                    <label for="primer_apellido"> Primer Apellido  </label>
+                    <input type="text" name="primer_apellido"  class="form-control" placeholder="Primer Apellido....">
+                </div>
             </div>
+
+
 
 
         {!!Form::close()!!}
