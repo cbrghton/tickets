@@ -3,7 +3,7 @@
 @push('assets')
     <script type="text/javascript" src="{{ asset('assets/js/plugins/forms/selects/select2.min.js') }}"></script>
     <script type="text/javascript" src="{{ asset('assets/js/plugins/forms/styling/uniform.min.js') }}"></script>
-    <script type="text/javascript" src="{{ asset('assets/js/pages/form_layouts.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('assets/js/pages/custom/editar_ticket.js') }}"></script>
 @endpush
 
 @section('title', 'Editar Ticket')
@@ -24,6 +24,11 @@
                 <label>Información adicional:</label>
                 <span class="help-block">Esta información se agregara a la descripción de la incidencia</span>
                 <textarea rows="5" cols="5" class="form-control" placeholder="Opcional"></textarea>
+            </div>
+
+            <div class="form-group">
+                <label class="display-block">Agrega más imagenes:</label>
+                <input type="file" class="file-styled">
             </div>
         </div>
     </div>
