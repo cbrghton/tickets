@@ -1,7 +1,9 @@
 @extends('layouts.app')
 @section('title','Crear Ticket')
 @section('content')
-    <div class="panel-default">
+
+    <div class="panel panel-flat">
+        <div class="panel-heading">
             <h3>Nueva Incidencia </h3>
             @if(count($errors)>0)
                 <div class="alert alert-danger">
@@ -11,7 +13,10 @@
                         @endforeach
                     </ul>
                 </div>
+        </div>
+    </div>
             @endif
+        <div class="panel-body">
     {!!Form::open(array('url'=>'tickets/index','method'=>'POST','autocomplete'=>'off','files'=>'true'))!!}
     {{Form::token()}}
 
