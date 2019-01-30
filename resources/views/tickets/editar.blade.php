@@ -1,5 +1,11 @@
 @extends('layouts.app')
 
+@push('assets')
+    <script type="text/javascript" src="{{ asset('assets/js/plugins/forms/selects/select2.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('assets/js/plugins/forms/styling/uniform.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('assets/js/pages/form_layouts.js') }}"></script>
+@endpush
+
 @section('title', 'Editar Ticket')
 
 @section('content')
@@ -10,9 +16,14 @@
 
         <div class="panel-body">
             <div class="form-group">
-                <h6>Incidencia</h6>
+                <label>Descripción de la Incidencia:</label>
+                <textarea rows="5" cols="5" class="form-control" placeholder="La incidencia" readonly="readonly"></textarea>
+            </div>
 
-                <textarea cols="100"></textarea>
+            <div class="form-group">
+                <label>Información adicional:</label>
+                <span class="help-block">Esta información se agregara a la descripción de la incidencia</span>
+                <textarea rows="5" cols="5" class="form-control" placeholder="Opcional"></textarea>
             </div>
         </div>
     </div>
