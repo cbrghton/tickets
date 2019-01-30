@@ -22,6 +22,19 @@
             </div>
          </div>
 
+        <div class="col-lg-10 col-sm-10 col-md-10 col-xs-10">
+            <div class="form-group">
+            <label>Sistema</label>
+            <select name="cat_sistema_id_sistema" id="cat_sistema_id_sistema" class="form-control" >
+
+                <option value="Alfred">Alfred</option>
+                <option value="Revista Taxi">Alfred</option>
+                <option value="Evee">Alfred</option>
+
+            </select>
+            </div>
+        </div>
+
 
 
         <div class="col-lg-6 col-sm-6 col-md-6 col-xs-6">
