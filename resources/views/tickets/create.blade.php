@@ -23,7 +23,7 @@
          <div class="col-lg-10 col-sm-10 col-md-10 col-xs-10">
              <div class="form-group purple-border">
                 <label for="Incidencia">Incidencia</label>
-                <textarea class="form-control" name="incidencia" id="incidencia" rows="10" cols="20" ></textarea>
+                <textarea class="form-control" name="incidencia" id="incidencia" rows="10" cols="20" onkeyup="mayus(this)"></textarea>
             </div>
          </div>
 
@@ -43,7 +43,7 @@
         <div class="col-lg-10 col-sm-10 col-md-10 col-xs-10">
             <div class="form-group">
                 <label for="descripcion">  Imagen  </label>
-                <input type="file" name="imagen" class="form-control" placeholder="Descripcion..">
+                <input type="file" name="imagen" class="form-control" placeholder="Descripcion.." >
             </div>
         </div>
 
@@ -56,4 +56,9 @@
 
         {!!Form::close()!!}
     </div>
+    <script>
+        function mayus(e) {
+            e.value = e.value.toUpperCase();
+        }
+    </script>
 @endsection
