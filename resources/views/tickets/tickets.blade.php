@@ -5,7 +5,7 @@
 @push('assets')
     <script type="text/javascript" src="{{ asset('assets/js/plugins/tables/datatables/datatables.min.js') }}"></script>
     <script type="text/javascript" src="{{ asset('assets/js/plugins/forms/selects/select2.min.js') }}"></script>
-    <script type="text/javascript" src="{{ asset('js/datatable_tickets.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('assets/js/pages/custom/datatable_tickets.js') }}"></script>
 @endpush
 
 @section('content')
