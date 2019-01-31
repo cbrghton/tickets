@@ -20,8 +20,3 @@ Route::get('/', 'HomeController@index')->name('home');
 Route::get('tickets/responder',function(){
     return(view('tickets.responder'));
 });
-
-
-Route::get('auth/passwords/reset',function(){
-    return(view('tickets.responder'));
-});
