@@ -73,6 +73,17 @@
             </div>
         </div>
 
+        <div class="col-lg-10 col-sm-10 col-md-10 col-xs-10">
+            <div class="form-group">
+                <label for="rol"> ROL </label>
+                <select class="form-control" name="rol">
+                    <option value="modulo">Administrador</option>
+                    <option value="modulo">Usuario</option>
+                    <option value="modulo">Responsable</option>
+                </select>
+            </div>
+        </div>
+
 
         {!!Form::close()!!}
     </div>
