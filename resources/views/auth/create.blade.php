@@ -68,6 +68,13 @@
 
         <div class="col-lg-10 col-sm-10 col-md-10 col-xs-10">
             <div class="form-group">
+                <label for="password"> Confirmar Password  </label>
+                <input type="password" name="password_confirmed"  class="form-control" placeholder="Confirmar Password....">
+            </div>
+        </div>
+
+        <div class="col-lg-10 col-sm-10 col-md-10 col-xs-10">
+            <div class="form-group">
                 <label for="rfc"> Rol </label>
                 <select class="form-control" name="rol">
                     <option value="rol">Administrador</option>
