@@ -1,33 +1,25 @@
-/* ------------------------------------------------------------------------------
-*
-*  # Basic datatables
-*
-*  Specific JS code additions for datatable_basic.html page
-*
-*  Version: 1.0
-*  Latest update: Aug 1, 2015
-*
-* ---------------------------------------------------------------------------- */
-
 $(function() {
-
-
     // Table setup
     // ------------------------------
 
     // Setting datatable defaults
     $.extend( $.fn.dataTable.defaults, {
         autoWidth: false,
+        stateSave: true,
         columnDefs: [{
             orderable: false,
             width: '100px',
-            targets: [ 5 ]
+            targets: [ 6 ]
         }],
         dom: '<"datatable-header"fl><"datatable-scroll"t><"datatable-footer"ip>',
         language: {
             search: '<span>Buscar:</span> _INPUT_',
             lengthMenu: '<span>Mostrar:</span> _MENU_',
-            paginate: { 'first': 'First', 'last': 'Last', 'next': '&rarr;', 'previous': '&larr;' }
+            paginate: { 'first': 'Primero', 'last': 'Ultimo', 'next': '&rarr;', 'previous': '&larr;' },
+            zeroRecords: "0 Resultados",
+            infoEmpty: "No se tiene resultados.",
+            infoFiltered: "(Encontrado de _MAX_ registros)",
+            info: "Mostrando _START_ a _END_ de _MAX_ registros",
         },
         drawCallback: function () {
             $(this).find('tbody tr').slice(-3).find('.dropdown, .btn-group').addClass('dropup');
@@ -40,30 +32,6 @@ $(function() {
 
     // Basic datatable
     $('.datatable-basic').DataTable();
-
-
-    // Alternative pagination
-    $('.datatable-pagination').DataTable({
-        pagingType: "simple",
-        language: {
-            paginate: {'next': 'Siguiente &rarr;', 'previous': '&larr; Anterior'}
-        }
-    });
-
-
-    // Datatable with saving state
-    $('.datatable-save-state').DataTable({
-        stateSave: true
-    });
-
-
-    // Scrollable datatable
-    $('.datatable-scroll-y').DataTable({
-        autoWidth: true,
-        scrollY: 300
-    });
-
-
 
     // External table additions
     // ------------------------------
