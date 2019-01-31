@@ -2,7 +2,7 @@
     <div class="modal-dialog">
     <div class="modal-content">
         <div class="modal-body">
-            <img src="{{asset('assets/images/placeholder.jpg') }}"></a>
+            <img src="{{asset('assets/images/placeholder.jpg') }}">
         </div>
     </div>
     </div>
