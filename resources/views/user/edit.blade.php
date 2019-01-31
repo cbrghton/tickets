@@ -30,6 +30,15 @@
 
 
 
+        <div class="col-lg-10 col-sm-10 col-md-10 col-xs-10">
+            <div class="form-group">
+                <label for="primer_apellido"> Primer Apellido  </label>
+                <input type="text" name="primer_apellido"  class="form-control" placeholder="Primer Apellido...." onkeyup="mayus(this)">
+            </div>
+        </div>
+
+
+
 
         {!!Form::close()!!}
     </div>
