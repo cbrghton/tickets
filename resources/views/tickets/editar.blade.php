@@ -30,6 +30,28 @@
                 <label class="display-block">Agrega más imagenes:</label>
                 <input type="file" class="file-styled">
             </div>
+
+            <div class="form-group">
+                <label>Sistema Asociado</label>
+                <select data-placeholder="Selecciona un sistema" class="select">
+                    <option></option>
+                    <optgroup label="Sistemas de Licencias">
+                        <option value="AZ">Licencias A</option>
+                        <option value="CO">Licencias B</option>
+                        <option value="ID">Licencias C</option>
+                        <option value="WY">Licencias D</option>
+                        <option value="WY">Licencias E</option>
+                    </optgroup>
+                    <optgroup label="Sistemas Vehiculares">
+                        <option value="AL">Oklahoma</option>
+                        <option value="IA">Taxi 2.0</option>
+                    </optgroup>
+                </select>
+            </div>
+
+            <div class="text-right">
+                <button type="submit" class="btn btn-primary">Guardar datos<i class="icon-arrow-right14 position-right"></i></button>
+            </div>
         </div>
     </div>
 @endsection
