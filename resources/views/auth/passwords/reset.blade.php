@@ -1,6 +1,13 @@
 @extends('layouts.app')
-
+@push('assets')
+    <script type="text/javascript" src="{{ asset('assets/js/plugins/forms/selects/select2.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('assets/js/plugins/forms/styling/uniform.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('assets/js/pages/form_layouts.js') }}"></script>
+@endpush
+@section('title', 'Responder Ticket')
 @section('content')
+
+
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
