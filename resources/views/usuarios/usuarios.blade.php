@@ -42,7 +42,7 @@
                                     </a>
                                     <ul class="dropdown-menu dropdown-menu-right">
                                         <li><a href="#"><i class="icon-vcard"></i> Editar Usuario</a></li>
-                                        <li><a href="#DeshabilitarUsuario" data-toggle="modal" data-iduser="{{$i}}" class="DeshabilitarUsuarioClass"><i class="icon-user-block"></i> Deshabilitar</a></li>
+                                        <li><a href="#DeshabilitarUsuarioModal" data-toggle="modal" data-iduser="{{$i}}" class="DeshabilitarUsuarioClass"><i class="icon-user-block"></i> Deshabilitar</a></li>
                                     </ul>
                                 </li>
                             </ul>
@@ -56,7 +56,7 @@
 @endsection
 
 <!-- Modal -->
-<div class="modal fade" id="DeshabilitarUsuario" tabindex="-1" role="dialog" aria-labelledby="DeshabilitarUsuario" aria-hidden="true">
+<div class="modal fade" id="DeshabilitarUsuarioModal" tabindex="-1" role="dialog" aria-labelledby="DeshabilitarUsuarioModal" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
@@ -66,7 +66,7 @@
                 </button>
             </div>
             <div class="modal-body">
-                ¿Seguro que desea deshabilitar al usuario?
+                ¿Seguro que desea deshabilitar al <span id="NombreUsuarioSpan"></span>?
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>

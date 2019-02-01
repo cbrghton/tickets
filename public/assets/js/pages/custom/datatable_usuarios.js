@@ -23,6 +23,7 @@ $(function() {
         },
         drawCallback: function () {
             $(this).find('tbody tr').slice(-3).find('.dropdown, .btn-group').addClass('dropup');
+            $('.DeshabilitarUsuarioClass').bind('click',getDataUser);
         },
         preDrawCallback: function() {
             $(this).find('tbody tr').slice(-3).find('.dropdown, .btn-group').removeClass('dropup');
@@ -43,5 +44,13 @@ $(function() {
         minimumResultsForSearch: Infinity,
         width: 'auto'
     });
+
+    /////////////////////Funcionalidad vista//////////////////////////////////
+    function getDataUser()
+    {
+        var iduser = $(this).attr('data-iduser');
+        var user = $(this).closest('tr').find('td').eq(0).text();
+        $("#DeshabilitarUsuarioModal #NombreUsuarioSpan").text(user);
+    };
 
 });
