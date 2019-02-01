@@ -19,4 +19,4 @@ Route::get('/', 'HomeController@index')->name('home');
 
 Route::get('tickets/responder',function(){
     return(view('tickets.responder'));
-});
+})->name('response_ticket');
