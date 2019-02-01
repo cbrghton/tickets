@@ -19,4 +19,4 @@ Route::get('/', 'HomeController@index')->name('home');
 
 Route::get('tickets/tickets', function () {
     return view('tickets.tickets');
-});
+})->name('see_tickets');
