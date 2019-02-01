@@ -5,7 +5,7 @@
 @push('assets')
     <script type="text/javascript" src="{{ asset('assets/js/plugins/tables/datatables/datatables.min.js') }}"></script>
     <script type="text/javascript" src="{{ asset('assets/js/plugins/forms/selects/select2.min.js') }}"></script>
-    <script type="text/javascript" src="{{ asset('js/datatable_usuarios.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('assets/js/pages/custom/datatable_usuarios.js') }}"></script>
 @endpush
 
 @section('content')
@@ -42,7 +42,7 @@
                                     </a>
                                     <ul class="dropdown-menu dropdown-menu-right">
                                         <li><a href="#"><i class="icon-vcard"></i> Editar Usuario</a></li>
-                                        <li><a href="#"><i class="icon-user-block"></i> Deshabilitar</a></li>
+                                        <li><a href="#DeshabilitarUsuario" data-toggle="modal" data-iduser="{{$i}}" class="DeshabilitarUsuarioClass"><i class="icon-user-block"></i> Deshabilitar</a></li>
                                     </ul>
                                 </li>
                             </ul>
@@ -54,3 +54,24 @@
         </div>
     </div>
 @endsection
+
+<!-- Modal -->
+<div class="modal fade" id="DeshabilitarUsuario" tabindex="-1" role="dialog" aria-labelledby="DeshabilitarUsuario" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="DeshabilitarUsuarioLabel">Deshabilitar Usuario</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                ¿Seguro que desea deshabilitar al usuario?
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                <button id="ConfirmarDeshabilitarUsuario" type="button" class="btn btn-primary">Confirmar</button>
+            </div>
+        </div>
+    </div>
+</div>
