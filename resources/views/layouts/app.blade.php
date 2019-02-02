@@ -18,6 +18,7 @@
     <link href="{{ asset('assets/css/core.css') }}" rel="stylesheet" type="text/css">
     <link href="{{ asset('assets/css/components.css') }}" rel="stylesheet" type="text/css">
     <link href="{{ asset('assets/css/colors.css') }}" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
     <!-- /global stylesheets -->
 
     <!-- Core JS files -->
@@ -177,18 +178,13 @@
                     <div class="category-content">
                         <div class="row">
                             <div class="col-xs-6">
-                                <a href="{{ route('create_ticket') }}">
-                                    <button class="btn bg-teal-400 btn-block btn-float btn-float-lg text-size-small"
-                                            type="button"><i class="icon-home"></i> <span>Crear Ticket</span></button>
-                                </a>
+                                <button class="btn bg-teal-400 btn-block btn-float btn-float-lg text-size-small"
+                                        type="button"><i class="fas fa-ticket-alt"></i><span>Crear Ticket</span></button>
                             </div>
 
                             <div class="col-xs-6">
-                                <a href="{{ route('see_tickets') }}">
-                                    <button class="btn bg-warning-400 btn-block btn-float btn-float-lg text-size-small"
-                                            type="button"><i class="icon-stats-bars"></i><span>Ver Tickets</span>
-                                    </button>
-                                </a>
+                                <button class="btn bg-warning-400 btn-block btn-float btn-float-lg text-size-small"
+                                        type="button"><i class="fas fa-clipboard-list"></i><span>Ver Tickets</span></button>
                             </div>
                         </div>
                     </div>
