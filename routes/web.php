@@ -40,4 +40,3 @@ Route::get('tickets/responder',function(){
 Route::get('tickets/tickets', function () {
     return view('tickets.tickets');
 })->name('see_tickets');
->>>>>>> routes/web.php
