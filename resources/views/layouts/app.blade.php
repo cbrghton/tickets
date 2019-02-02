@@ -65,7 +65,7 @@
                 <ul class="nav navbar-nav">
                     <li class="dropdown dropdown-user">
                         <a class="dropdown-toggle" data-toggle="dropdown">
-                            <img src="assets/images/placeholder.jpg" alt="">
+                            <img src="{{ asset('assets/images/placeholder.jpg') }}" alt="">
                             <span>{{ Auth::user()->nombre }}</span>
                             <i class="caret"></i>
                         </a>
@@ -238,7 +238,7 @@
                     <div class="category-content">
                         <ul class="media-list">
                             <li class="media">
-                                <a href="#" class="media-left"><img src="assets/images/placeholder.jpg"
+                                <a href="#" class="media-left"><img src="{{ asset('assets/images/placeholder.jpg') }}"
                                                                     class="img-sm img-circle" alt=""></a>
                                 <div class="media-body">
                                     <a href="#" class="media-heading text-semibold">James Alexander</a>
@@ -250,7 +250,7 @@
                             </li>
 
                             <li class="media">
-                                <a href="#" class="media-left"><img src="assets/images/placeholder.jpg"
+                                <a href="#" class="media-left"><img src="{{ asset('assets/images/placeholder.jpg') }}"
                                                                     class="img-sm img-circle" alt=""></a>
                                 <div class="media-body">
                                     <a href="#" class="media-heading text-semibold">Jeremy Victorino</a>
@@ -262,7 +262,7 @@
                             </li>
 
                             <li class="media">
-                                <a href="#" class="media-left"><img src="assets/images/placeholder.jpg"
+                                <a href="#" class="media-left"><img src="{{ asset('assets/images/placeholder.jpg') }}"
                                                                     class="img-sm img-circle" alt=""></a>
                                 <div class="media-body">
                                     <a href="#" class="media-heading text-semibold">Margo Baker</a>
@@ -274,7 +274,7 @@
                             </li>
 
                             <li class="media">
-                                <a href="#" class="media-left"><img src="assets/images/placeholder.jpg"
+                                <a href="#" class="media-left"><img src="{{ asset('assets/images/placeholder.jpg') }}"
                                                                     class="img-sm img-circle" alt=""></a>
                                 <div class="media-body">
                                     <a href="#" class="media-heading text-semibold">Beatrix Diaz</a>
@@ -286,7 +286,7 @@
                             </li>
 
                             <li class="media">
-                                <a href="#" class="media-left"><img src="assets/images/placeholder.jpg"
+                                <a href="#" class="media-left"><img src="{{ asset('assets/images/placeholder.jpg') }}"
                                                                     class="img-sm img-circle" alt=""></a>
                                 <div class="media-body">
                                     <a href="#" class="media-heading text-semibold">Richard Vango</a>
