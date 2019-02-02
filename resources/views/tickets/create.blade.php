@@ -4,7 +4,7 @@
 
     <div class="panel panel-flat">
         <div class="panel-heading">
-            <h3>Nueva Incidencia </h3>
+            <h3>NuevO Ticket </h3>
             @if(count($errors)>0)
                 <div class="alert alert-danger">
                     <ul>
@@ -20,14 +20,14 @@
     {!!Form::open(array('url'=>'tickets/index','method'=>'POST','autocomplete'=>'off','files'=>'true'))!!}
     {{Form::token()}}
 
-         <div class="col-lg-10 col-sm-10 col-md-10 col-xs-10">
+         <div class="col-lg-12 col-sm-12 col-md-12 col-xs-12">
              <div class="form-group purple-border">
                 <label for="Incidencia">Incidencia</label>
                 <textarea class="form-control" name="incidencia" id="incidencia" rows="10" cols="20" onkeyup="mayus(this)"></textarea>
             </div>
          </div>
 
-        <div class="col-lg-10 col-sm-10 col-md-10 col-xs-10">
+        <div class="col-lg-12 col-sm-12 col-md-12 col-xs-12">
             <div class="form-group">
             <label>Sistema</label>
             <select name="cat_sistema_id_sistema" id="cat_sistema_id_sistema" class="form-control" >
@@ -40,14 +40,14 @@
             </div>
         </div>
 
-        <div class="col-lg-10 col-sm-10 col-md-10 col-xs-10">
+        <div class="col-lg-12 col-sm-12 col-md-12 col-xs-12">
             <div class="form-group">
                 <label for="descripcion">  Imagen  </label>
                 <input type="file" name="imagen" class="form-control" placeholder="Descripcion.." >
             </div>
         </div>
 
-        <div class="col-lg-6 col-sm-6 col-md-6 col-xs-6">
+        <div class="col-lg-12 col-sm-12 col-md-12 col-xs-12">
             <div class="form-group">
                 <button class="btn btn-primary" type="submit">Guardar</button>
                 <button class="btn btn-danger" type="reset">Cancelar</button>
