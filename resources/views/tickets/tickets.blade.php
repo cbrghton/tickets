@@ -45,7 +45,7 @@
                                             <i class="icon-menu9"></i>
                                         </a>
                                         <ul class="dropdown-menu dropdown-menu-right">
-                                            <li><a href="#"><i class="icon-pencil4"></i> Editar</a></li>
+                                            <li><a href="{{ route('edit_ticket') }}"><i class="icon-pencil4"></i> Editar</a></li>
                                             <li><a href="#"><i class="icon-reply"></i> Responder</a></li>
                                         </ul>
                                     </li>
