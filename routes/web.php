@@ -17,6 +17,10 @@ Route::post('logout', 'Auth\LoginController@logout')->name('logout');
 
 Route::get('/', 'HomeController@index')->name('home');
 
+Route::get('tickets/create', function () {
+    return view('tickets.create');
+})->name('create_ticket');
+
 Route::get('tickets/editar', function (){
     return view('tickets.editar');
 })->name('edit_ticket');
