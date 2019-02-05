@@ -35,7 +35,7 @@
 
     <!-- Theme JS files -->
     @stack('assets')
-
+    @include('auth.passwords.reset')
     <script type="text/javascript" src="{{ asset('assets/js/core/app.js') }}"></script>
     <!-- /theme JS files -->
 
@@ -71,9 +71,10 @@
                             <span>{{ Auth::user()->nombre }}</span>
                             <i class="caret"></i>
                         </a>
-
                         <ul class="dropdown-menu dropdown-menu-right">
-                            <li><a href="#"><i class="icon-user-plus"></i> Cambiar Contraseña</a></li>
+                            <li><a href="" data-target="#modal-password" data-toggle="modal"><i class="icon-user-plus"></i>Cambiar contraseña</a></li>
+
+
                             <li class="divider"></li>
                             <li><a href="{{ route('logout') }}"
                                    onclick="event.preventDefault();
@@ -464,7 +465,6 @@
 
 </div>
 <!-- /page container -->
-
 
 <!-- Footer -->
 <div class="navbar navbar-default navbar-fixed-bottom footer">
