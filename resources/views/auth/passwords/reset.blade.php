@@ -1,4 +1,4 @@
-<div class="modal fade modal-slide-in-right" aria-hidden="true" role="dialog" tobindex="-1" id="modal-password-2">
+<div class="modal fade modal-slide-in-right" aria-hidden="true" role="dialog" tobindex="-1" id="modal-password">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
