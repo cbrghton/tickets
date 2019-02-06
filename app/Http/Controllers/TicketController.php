@@ -4,13 +4,13 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Services\TicketService;
-use App\Services\ImageService;
 
 class TicketController extends Controller
 {
-    public function edit(Request $request, TicketService $ticketService){
+    public function edit(Request $request, TicketService $ticketService)
+    {
 
-        if(empty($request->input('incidence')) && empty($request->file('images')) && empty($request->input('system'))){
+        if (empty($request->input('incidence')) && empty($request->file('images')) && empty($request->input('system'))) {
             return back();
         }
 
