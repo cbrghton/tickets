@@ -17,6 +17,8 @@ Route::post('logout', 'Auth\LoginController@logout')->name('logout');
 
 Route::get('/', 'HomeController@index')->name('home');
 
+Route::post('user/edit', 'Auth\EditController@edit')->name('auth_edit');
+
 Route::get('user/edit', function () {
     return view('auth.edit');
 });
