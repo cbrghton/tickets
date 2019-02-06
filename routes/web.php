@@ -25,6 +25,9 @@ Route::get('user/create', function () {
     return view('auth.create');
 });
 
+
+
+
 Route::get('tickets/create', function () {
     return view('tickets.create');
 })->name('create_ticket');
@@ -32,6 +35,8 @@ Route::get('tickets/create', function () {
 Route::get('tickets/editar', function (){
     return view('tickets.editar');
 })->name('edit_ticket');
+
+Route::post('tickets/editar', 'TicketController@edit')->name('edit.ticket');
 
 Route::get('tickets/responder',function(){
     return(view('tickets.responder'));

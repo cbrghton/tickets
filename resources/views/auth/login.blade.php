@@ -69,31 +69,34 @@
                         </h5>
                     </div>
 
-                    <div class="form-group has-feedback has-feedback-left">
-                        <input type="text" class="form-control{{ $errors->has('rfc') ? ' is-invalid' : '' }}"
+                    <div class="form-group has-feedback has-feedback-left{{ $errors->has('rfc') ? ' has-error' : '' }}">
+                        <input type="text" class="form-control"
                                placeholder="RFC" name="rfc">
                         <div class="form-control-feedback">
                             <i class="icon-user text-muted"></i>
                         </div>
 
                         @if ($errors->has('rfc'))
-                            <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $errors->first('rfc') }}</strong>
-                                    </span>
+                            <span class="help-block text-danger">
+                                <i class="icon-cancel-circle2 position-left"></i>
+                                {{ $errors->first('rfc') }}
+                            </span>
                         @endif
                     </div>
 
-                    <div class="form-group has-feedback has-feedback-left">
-                        <input type="password" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}"
+                    <div
+                        class="form-group has-feedback has-feedback-left{{ $errors->has('password') ? ' has-error' : '' }}">
+                        <input type="password" class="form-control"
                                placeholder="Constraseña" name="password" required>
                         <div class="form-control-feedback">
                             <i class="icon-lock2 text-muted"></i>
                         </div>
 
                         @if ($errors->has('password'))
-                            <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $errors->first('password') }}</strong>
-                                    </span>
+                            <span class="help-block text-danger">
+                                <i class="icon-cancel-circle2 position-left"></i>
+                                {{ $errors->first('password') }}
+                            </span>
                         @endif
                     </div>
 
