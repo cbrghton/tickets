@@ -20,7 +20,7 @@ class CreateSolicitudTable extends Migration
             $table->enum('estatus', ['PENDIENTE', 'RESUELTO']);
             $table->integer('sistema_id')->unsigned();
             $table->integer('user_creacion_id')->unsigned();
-            $table->integer('user_respuesta_id')->unsigned();
+            $table->integer('user_respuesta_id')->unsigned()->nullable();
             $table->ipAddress('ip_user_creacion');
             $table->ipAddress('ip_user_respuesta')->nullable();
             $table->timestamps();
