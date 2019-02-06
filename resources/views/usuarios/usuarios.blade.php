@@ -53,25 +53,25 @@
             </table>
         </div>
     </div>
-@endsection
 
-<!-- Modal -->
-<div class="modal fade" id="DeshabilitarUsuarioModal" tabindex="-1" role="dialog" aria-labelledby="DeshabilitarUsuarioModal" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="DeshabilitarUsuarioLabel">Deshabilitar Usuario</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                ¿Seguro que desea deshabilitar al <span id="NombreUsuarioSpan"></span>?
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-                <button id="ConfirmarDeshabilitarUsuario" type="button" class="btn btn-primary">Confirmar</button>
+    <!-- Modal -->
+    <div class="modal fade" id="DeshabilitarUsuarioModal" tabindex="-1" role="dialog" aria-labelledby="DeshabilitarUsuarioModal" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="DeshabilitarUsuarioLabel">Deshabilitar Usuario</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    ¿Seguro que desea deshabilitar al <span id="NombreUsuarioSpan"></span>?
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                    <button id="ConfirmarDeshabilitarUsuario" type="button" class="btn btn-primary">Confirmar</button>
+                </div>
             </div>
         </div>
     </div>
-</div>
+@endsection
