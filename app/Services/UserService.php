@@ -13,5 +13,4 @@ class UserService
         User::find($data['id_user'])
             ->update($data);
     }
-
 }
