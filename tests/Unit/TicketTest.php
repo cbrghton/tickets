@@ -2,7 +2,6 @@
 
 namespace Tests\Unit;
 
-use Illuminate\Support\Facades\Storage;
 use Tests\TestCase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Foundation\Testing\RefreshDatabase;
@@ -10,7 +9,8 @@ use App\Services\TicketService;
 
 class TicketTest extends TestCase
 {
-    use RefreshDatabase;
+    use withFaker,
+        RefreshDatabase;
 
     /**
      * A basic test example.
@@ -25,6 +25,7 @@ class TicketTest extends TestCase
     public function testEditTicket()
     {
         $ticketService = new TicketService();
+
         $module = factory(\App\Models\CatModulo::class)->create();
         $user = factory(\App\User::class)->create([
             'modulo_id' => $module->id_modulo
@@ -37,7 +38,7 @@ class TicketTest extends TestCase
 
         $incidense = 'Lorem ipsum dolor sit amet consectetur adipiscing elit arcu, augue iaculis quisque molestie penatibus risus ut, eget cubilia tristique fames cras velit fringilla semper, nam dictum a tempor hac natoque. Arcu tellus senectus sociis mauris montes primis gravida sapien, ultricies ligula dui rutrum per elementum ac felis, maecenas auctor class praesent euismod metus torquent. Feugiat condimentum eget lectus dapibus nam felis praesent aenean ac etiam nullam faucibus vivamus tempor a curae, sodales vehicula litora neque rhoncus cubilia vitae odio id aliquam fringilla platea eros cum tincidunt. Elementum sem primis vitae interdum magnis nascetur curabitur condimentum mollis, neque scelerisque bibendum mus semper eros nunc hendrerit malesuada, potenti sociis litora laoreet cum porta odio diam.';
 
-        $image[] = Storage::disk('local')->get('public/logo_dark.png');
+        $image[] = $this->faker()->image();
 
         $estatus = $ticketService->edit($ticket->id_solicitud, $incidense, $image, $system->id_sistema);
 
