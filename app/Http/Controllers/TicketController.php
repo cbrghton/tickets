@@ -10,7 +10,9 @@ class TicketController extends Controller
     public function edit(Request $request, TicketService $ticketService)
     {
 
-        if (empty($request->input('incidence')) && empty($request->file('images')) && empty($request->input('system'))) {
+        if (empty($request->input('incidence')) &&
+            empty($request->file('images')) &&
+            empty($request->input('system'))) {
             return back();
         }
 

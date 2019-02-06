@@ -15,7 +15,7 @@ class TicketService
 
         $ticket->sistema_id = $id_system;
 
-        foreach ($images_ticket as $image_ticket){
+        foreach ($images_ticket as $image_ticket) {
             $image = new CatImagen();
 
             $image_ticket = base64_encode($image_ticket);
