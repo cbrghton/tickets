@@ -17,6 +17,11 @@ Route::post('logout', 'Auth\LoginController@logout')->name('logout');
 
 Route::get('/', 'HomeController@index')->name('home');
 
+
+Route::get('users/show', function () {
+    return view('usuarios.usuarios');
+});
+
 Route::get('user/edit', function () {
     return view('auth.edit');
 });
@@ -24,7 +29,6 @@ Route::get('user/edit', function () {
 Route::get('user/create', function () {
     return view('auth.create');
 });
-
 
 
 
