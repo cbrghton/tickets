@@ -14,15 +14,18 @@ class TicketService
         Solicitud::find($data['id_solicitud'])
             ->update($data);
 
-        foreach ($data['imagenes'] as $image_ticket) {
-            $image = new CatImagen();
+        if(array_key_exists('imagenes', $data)){
 
-            $image_ticket = base64_encode($image_ticket);
+            foreach ($data['imagenes'] as $image_ticket) {
+                $image = new CatImagen();
 
-            $image->imagen = $image_ticket;
-            $image->solicitud_id = $data['id_solicitud'];
+                $image_ticket = base64_encode($image_ticket);
 
-            $image->save();
+                $image->imagen = $image_ticket;
+                $image->solicitud_id = $data['id_solicitud'];
+
+                $image->save();
+            }
         }
     }
 }

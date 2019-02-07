@@ -11,17 +11,15 @@ class EditController extends Controller
 {
     public function update(Request $request, TicketService $ticketService, VerifyService $verify)
     {
-        dd($request->all());
-
         if ($verify->verifyEmpty($request->all())) {
             return back();
         }
 
         $validation = $request->validate([
             'id_ticket' => 'required',
-            'incidence' => 'nullable|string',
-            'images.*' => 'nullable|image|max:1000',
-            'system' => 'nullable|alpha'
+            'incidencia' => 'nullable|string',
+            'imagenes.*' => 'nullable|image|max:1000',
+            'sistema_id' => 'nullable|alpha'
         ]);
 
         $ticketService->update($request->all());
