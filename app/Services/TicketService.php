@@ -14,7 +14,7 @@ class TicketService
         Solicitud::find($data['id_solicitud'])
             ->update($data);
 
-        if(array_key_exists('imagenes', $data)){
+        if (array_key_exists('imagenes', $data)) {
 
             foreach ($data['imagenes'] as $image_ticket) {
                 $image = new CatImagen();
