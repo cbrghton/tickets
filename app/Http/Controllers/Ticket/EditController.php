@@ -7,10 +7,12 @@ use App\Services\TicketService;
 use App\Services\VerifyService;
 use Illuminate\Http\Request;
 
-class TicketController extends Controller
+class EditController extends Controller
 {
     public function update(Request $request, TicketService $ticketService, VerifyService $verify)
     {
+        dd($request->all());
+
         if ($verify->verifyEmpty($request->all())) {
             return back();
         }

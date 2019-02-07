@@ -21,10 +21,10 @@
 
                 <div class="form-group">
                     <label> Nombre </label>
-                    <input type="text" name="name" class="form-control" placeholder="Nombre...."
+                    <input type="text" name="nombre" class="form-control" placeholder="Nombre...."
                            onkeyup="mayus(this)">
 
-                    @if ($errors->has('name'))
+                    @if ($errors->has('nombre'))
                         <span class="help-block text-danger">
                                 <i class="icon-cancel-circle2 position-left"></i>
                                 Verifica que estes ingresando bien la información
@@ -35,10 +35,10 @@
 
                 <div class="form-group">
                     <label> Primer Apellido </label>
-                    <input type="text" name="first_surname" class="form-control" placeholder="Primer Apellido...."
+                    <input type="text" name="primer_apellido" class="form-control" placeholder="Primer Apellido...."
                            onkeyup="mayus(this)">
 
-                    @if ($errors->has('first_surname'))
+                    @if ($errors->has('primer_apellido'))
                         <span class="help-block text-danger">
                                 <i class="icon-cancel-circle2 position-left"></i>
                                 Verifica que estes ingresando bien la información
@@ -48,10 +48,10 @@
 
                 <div class="form-group">
                     <label> Segundo Apellido </label>
-                    <input type="text" name="second_surname" class="form-control" placeholder="Segundo Apellido...."
+                    <input type="text" name="segundo_apellido" class="form-control" placeholder="Segundo Apellido...."
                            onkeyup="mayus(this)">
 
-                    @if ($errors->has('second_surname'))
+                    @if ($errors->has('segundo_apellido'))
                         <span class="help-block text-danger">
                                 <i class="icon-cancel-circle2 position-left"></i>
                                 Verifica que estes ingresando bien la información
@@ -61,8 +61,8 @@
 
 
                 <div class="form-group">
-                    <label for="id_module"> Modulo </label>
-                    <select data-placeholder="Selecciona un modulo" class="select" name="id_module" id="id_module">
+                    <label for="id_modulo"> Modulo </label>
+                    <select data-placeholder="Selecciona un modulo" class="select" name="id_modulo" id="id_modulo">
                         <option></option>
                         <option value="modulo">Insurgentes</option>
                         <option value="modulo">Popotla</option>

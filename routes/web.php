@@ -30,7 +30,7 @@ Route::middleware('auth')->namespace('Auth')->prefix('user')->name('auth.')->gro
 });
 
 
-Route::middleware('auth')->name('ticket.')->prefix('tickets')->group(function () {
+Route::middleware('auth')->namespace('Ticket')->name('ticket.')->prefix('tickets')->group(function () {
     Route::get('create', function () {
         return view('tickets.create');
     })->name('create');
@@ -39,7 +39,7 @@ Route::middleware('auth')->name('ticket.')->prefix('tickets')->group(function ()
         return view('tickets.edit');
     })->name('edit');
 
-    Route::post('tickets/update', 'TicketController@edit')->name('update');
+    Route::post('tickets/update', 'EditController@update')->name('update');
 
     Route::get('response', function () {
         return (view('tickets.response'));

@@ -29,4 +29,8 @@ class Solicitud extends Model
      * @var array
      */
     protected $dates = ['deleted_at'];
+
+    protected $fillable = [
+        'incidencia', 'sistema_id',
+    ];
 }

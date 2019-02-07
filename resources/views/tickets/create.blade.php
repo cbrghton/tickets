@@ -17,11 +17,11 @@
         <div class="panel-body">
             <form>
                 <div class="form-group">
-                    <label for="incidence">Incidencia</label>
-                    <textarea class="form-control" name="incidence" id="incidence" rows="5" cols="5"
+                    <label for="incidencia">Incidencia</label>
+                    <textarea class="form-control" name="incidencia" id="incidencia" rows="5" cols="5"
                               onkeyup="mayus(this)" required="required"></textarea>
 
-                    @if ($errors->has('incidence'))
+                    @if ($errors->has('incidencia'))
                         <span class="help-block text-danger">
                                 <i class="icon-cancel-circle2 position-left"></i>
                                 Verifica que ingreses bien tu información
@@ -30,8 +30,8 @@
                 </div>
 
                 <div class="form-group">
-                    <label for="id_system">Sistema</label>
-                    <select data-placeholder="Selecciona un sistema" name="id_system" id="id_system" class="select"
+                    <label for="id_sistema">Sistema</label>
+                    <select data-placeholder="Selecciona un sistema" name="id_system" id="id_sistema" class="select"
                             required="required">
                         <option></option>
                         <option value="Alfred">Alfred</option>
@@ -39,7 +39,7 @@
                         <option value="Evee">Alfred</option>
                     </select>
 
-                    @if ($errors->has('id_system'))
+                    @if ($errors->has('id_sistema'))
                         <span class="help-block text-danger">
                                 <i class="icon-cancel-circle2 position-left"></i>
                                 Verifica que ingreses bien tu información
@@ -49,7 +49,7 @@
 
                 <div class="form-group">
                     <label class="display-block">Agrega más imagenes:</label>
-                    <input type="file" name="images[]" class="file-input" multiple="multiple" data-show-upload="false">
+                    <input type="file" name="imagenes[]" class="file-input" multiple="multiple" data-show-upload="false">
                 </div>
 
                 <div class="form-group text-right">

@@ -2,8 +2,8 @@
 
 namespace App\Services;
 
-use App\Models\Solicitud;
 use App\Models\CatImagen;
+use App\Models\Solicitud;
 
 class TicketService
 {
@@ -11,21 +11,18 @@ class TicketService
     {
         $data = array_filter($data);
 
-        Solicitud::find($data['id_ticket']);
+        Solicitud::find($data['id_solicitud'])
+            ->update($data);
 
-        /*$ticket->incidencia = $ticket->incidencia . ' ' . $incidence_ticket;
-
-        foreach ($images_ticket as $image_ticket) {
+        foreach ($data['imagenes'] as $image_ticket) {
             $image = new CatImagen();
 
             $image_ticket = base64_encode($image_ticket);
 
             $image->imagen = $image_ticket;
-            $image->solicitud_id = $id_ticket;
+            $image->solicitud_id = $data['id_solicitud'];
 
             $image->save();
         }
-
-        return true;*/
     }
 }
