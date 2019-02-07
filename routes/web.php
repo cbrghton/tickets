@@ -17,37 +17,41 @@ Route::post('logout', 'Auth\LoginController@logout')->name('logout');
 
 Route::get('/', 'HomeController@index')->name('home');
 
-Route::post('user/edit', 'Auth\EditController@edit')->name('auth_edit');
+Route::middleware('auth')->namespace('Auth')->prefix('user')->name('auth.')->group(function () {
+    Route::post('update', 'EditController@update')->name('update');
 
-/*Route::get('users/show', function () {
-    return view('usuarios.usuarios');
-});*/
-Route::get('users/show', 'usuarios\UsuarioController@index')->name('see_users');
+    /*Route::get('users/show', function () {
+        return view('usuarios.usuarios');
+    });*/
+    
+    Route::get('users/show', 'usuarios\UsuarioController@index')->name('see_users');
+    
+    Route::get('show', function () {
+        return view('auth.show');
+    })->name('show');
 
-Route::get('user/edit', function () {
-    return view('auth.edit');
+    Route::get('edit', 'EditController@edit')->name('edit');
+
+    Route::get('create', 'CreateController@create')->name('create');
 });
 
-Route::get('user/create', function () {
-    return view('auth.create');
+
+Route::middleware('auth')->namespace('Ticket')->name('ticket.')->prefix('tickets')->group(function () {
+    Route::get('create', function () {
+        return view('tickets.create');
+    })->name('create');
+
+    Route::get('edit', function () {
+        return view('tickets.edit');
+    })->name('edit');
+
+    Route::post('tickets/update', 'EditController@update')->name('update');
+
+    Route::get('response', function () {
+        return (view('tickets.response'));
+    })->name('response');
+
+    Route::get('show', function () {
+        return view('tickets.show');
+    })->name('show');
 });
-
-
-
-Route::get('tickets/create', function () {
-    return view('tickets.create');
-})->name('create_ticket');
-
-Route::get('tickets/editar', function (){
-    return view('tickets.editar');
-})->name('edit_ticket');
-
-Route::post('tickets/editar', 'TicketController@edit')->name('edit.ticket');
-
-Route::get('tickets/responder',function(){
-    return(view('tickets.responder'));
-})->name('response_ticket');
-
-Route::get('tickets/tickets', function () {
-    return view('tickets.tickets');
-})->name('see_tickets');

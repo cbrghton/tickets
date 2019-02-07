@@ -72,7 +72,8 @@
                             <i class="caret"></i>
                         </a>
                         <ul class="dropdown-menu dropdown-menu-right">
-                            <li><a href="" data-target="#modal-password" data-toggle="modal"><i class="icon-user-plus"></i>Cambiar contraseña</a></li>
+                            <li><a href="" data-target="#modal-password" data-toggle="modal"><i
+                                        class="icon-user-plus"></i>Cambiar contraseña</a></li>
 
 
                             <li class="divider"></li>
@@ -180,7 +181,7 @@
                     <div class="category-content">
                         <div class="row">
                             <div class="col-xs-6">
-                                <a href="{{ route('create_ticket') }}">
+                                <a href="{{ route('ticket.create') }}">
                                     <button class="btn bg-teal-400 btn-block btn-float btn-float-lg text-size-small"
                                             type="button"><i class="fas fa-ticket-alt"></i><span>Crear Ticket</span>
                                     </button>
@@ -188,7 +189,7 @@
                             </div>
 
                             <div class="col-xs-6">
-                                <a href="{{ route('see_tickets') }}">
+                                <a href="{{ route('ticket.show') }}">
                                     <button class="btn bg-warning-400 btn-block btn-float btn-float-lg text-size-small"
                                             type="button"><i class="fas fa-clipboard-list"></i><span>Ver Tickets</span>
                                     </button>
@@ -201,246 +202,25 @@
 
 
                 <!-- Task navigation -->
-                <div class="sidebar-category">
-                    <div class="category-title">
-                        <span>Navigation</span>
-                        <ul class="icons-list">
-                            <li><a href="#" data-action="collapse"></a></li>
-                        </ul>
-                    </div>
+                @role('manage_users')
+                    <div class="sidebar-category">
+                        <div class="category-title">
+                            <span>Administración</span>
+                            <ul class="icons-list">
+                                <li><a href="#" data-action="collapse"></a></li>
+                            </ul>
+                        </div>
 
-                    <div class="category-content no-padding">
-                        <ul class="navigation navigation-alt navigation-accordion">
-                            <li class="navigation-header">Actions</li>
-                            <li><a href="#"><i class="icon-googleplus5"></i> Create task</a></li>
-                            <li><a href="#"><i class="icon-portfolio"></i> Create project</a></li>
-                            <li><a href="#"><i class="icon-compose"></i> Edit task list</a></li>
-                            <li><a href="#"><i class="icon-user-plus"></i> Assign users <span
-                                        class="label label-success">94 online</span></a></li>
-                            <li><a href="#"><i class="icon-collaboration"></i> Create team</a></li>
-                            <li class="navigation-header">Tasks</li>
-                            <li><a href="#"><i class="icon-files-empty"></i> All tasks</a></li>
-                            <li><a href="#"><i class="icon-file-plus"></i> Active tasks <span
-                                        class="badge badge-default">28</span></a></li>
-                            <li><a href="#"><i class="icon-file-check"></i> Closed tasks</a></li>
-                            <li class="navigation-divider"></li>
-                            <li><a href="#"><i class="icon-reading"></i> Assigned to me <span class="badge badge-info">86</span></a>
-                            </li>
-                            <li><a href="#"><i class="icon-make-group"></i> Assigned to my team <span
-                                        class="badge badge-info">47</span></a></li>
-                            <li><a href="#"><i class="icon-cog3"></i> Settings</a></li>
-                        </ul>
+                        <div class="category-content no-padding">
+                            <ul class="navigation navigation-alt navigation-accordion">
+                                <li class="navigation-header">Acciones</li>
+                                <li><a href="{{ route('auth.create') }}"><i class="icon-user-plus"></i> Crear Usuario</a></li>
+                                <li><a href="{{ route('auth.show') }}"><i class="icon-collaboration"></i> Ver Usuarios</a></li>
+                            </ul>
+                        </div>
                     </div>
-                </div>
+                @endrole
                 <!-- /task navigation -->
-
-
-                <!-- Assigned users -->
-                <div class="sidebar-category">
-                    <div class="category-title">
-                        <span>Assigned users</span>
-                        <ul class="icons-list">
-                            <li><a href="#" data-action="collapse"></a></li>
-                        </ul>
-                    </div>
-
-                    <div class="category-content">
-                        <ul class="media-list">
-                            <li class="media">
-                                <a href="#" class="media-left"><img src="{{ asset('assets/images/placeholder.jpg') }}"
-                                                                    class="img-sm img-circle" alt=""></a>
-                                <div class="media-body">
-                                    <a href="#" class="media-heading text-semibold">James Alexander</a>
-                                    <span class="text-size-mini text-muted display-block">Santa Ana, CA.</span>
-                                </div>
-                                <div class="media-right media-middle">
-                                    <span class="status-mark bg-success"></span>
-                                </div>
-                            </li>
-
-                            <li class="media">
-                                <a href="#" class="media-left"><img src="{{ asset('assets/images/placeholder.jpg') }}"
-                                                                    class="img-sm img-circle" alt=""></a>
-                                <div class="media-body">
-                                    <a href="#" class="media-heading text-semibold">Jeremy Victorino</a>
-                                    <span class="text-size-mini text-muted display-block">Dowagiac, MI.</span>
-                                </div>
-                                <div class="media-right media-middle">
-                                    <span class="status-mark bg-danger"></span>
-                                </div>
-                            </li>
-
-                            <li class="media">
-                                <a href="#" class="media-left"><img src="{{ asset('assets/images/placeholder.jpg') }}"
-                                                                    class="img-sm img-circle" alt=""></a>
-                                <div class="media-body">
-                                    <a href="#" class="media-heading text-semibold">Margo Baker</a>
-                                    <span class="text-size-mini text-muted display-block">Kasaan, AK.</span>
-                                </div>
-                                <div class="media-right media-middle">
-                                    <span class="status-mark bg-success"></span>
-                                </div>
-                            </li>
-
-                            <li class="media">
-                                <a href="#" class="media-left"><img src="{{ asset('assets/images/placeholder.jpg') }}"
-                                                                    class="img-sm img-circle" alt=""></a>
-                                <div class="media-body">
-                                    <a href="#" class="media-heading text-semibold">Beatrix Diaz</a>
-                                    <span class="text-size-mini text-muted display-block">Neenah, WI.</span>
-                                </div>
-                                <div class="media-right media-middle">
-                                    <span class="status-mark bg-warning"></span>
-                                </div>
-                            </li>
-
-                            <li class="media">
-                                <a href="#" class="media-left"><img src="{{ asset('assets/images/placeholder.jpg') }}"
-                                                                    class="img-sm img-circle" alt=""></a>
-                                <div class="media-body">
-                                    <a href="#" class="media-heading text-semibold">Richard Vango</a>
-                                    <span class="text-size-mini text-muted display-block">Grapevine, TX.</span>
-                                </div>
-                                <div class="media-right media-middle">
-                                    <span class="status-mark bg-grey-400"></span>
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-                <!-- /assigned users -->
-
-
-                <!-- Revisions -->
-                <div class="sidebar-category">
-                    <div class="category-title">
-                        <span>Revisions</span>
-                        <ul class="icons-list">
-                            <li><a href="#" data-action="collapse"></a></li>
-                        </ul>
-                    </div>
-
-                    <div class="category-content">
-                        <ul class="media-list">
-                            <li class="media">
-                                <div class="media-left">
-                                    <a href="#"
-                                       class="btn border-primary text-primary btn-flat btn-rounded btn-icon btn-sm"><i
-                                            class="icon-git-pull-request"></i></a>
-                                </div>
-
-                                <div class="media-body">
-                                    Drop the IE <a href="#">specific hacks</a> for temporal inputs
-                                    <div class="media-annotation">4 minutes ago</div>
-                                </div>
-                            </li>
-
-                            <li class="media">
-                                <div class="media-left">
-                                    <a href="#"
-                                       class="btn border-warning text-warning btn-flat btn-rounded btn-icon btn-sm"><i
-                                            class="icon-git-commit"></i></a>
-                                </div>
-
-                                <div class="media-body">
-                                    Add full font overrides for popovers and tooltips
-                                    <div class="media-annotation">36 minutes ago</div>
-                                </div>
-                            </li>
-
-                            <li class="media">
-                                <div class="media-left">
-                                    <a href="#"
-                                       class="btn border-info text-info btn-flat btn-rounded btn-icon btn-sm"><i
-                                            class="icon-git-branch"></i></a>
-                                </div>
-
-                                <div class="media-body">
-                                    <a href="#">Chris Arney</a> created a new <span class="text-semibold">Design</span>
-                                    branch
-                                    <div class="media-annotation">2 hours ago</div>
-                                </div>
-                            </li>
-
-                            <li class="media">
-                                <div class="media-left">
-                                    <a href="#"
-                                       class="btn border-success text-success btn-flat btn-rounded btn-icon btn-sm"><i
-                                            class="icon-git-merge"></i></a>
-                                </div>
-
-                                <div class="media-body">
-                                    <a href="#">Eugene Kopyov</a> merged <span class="text-semibold">Master</span> and
-                                    <span class="text-semibold">Dev</span> branches
-                                    <div class="media-annotation">Dec 18, 18:36</div>
-                                </div>
-                            </li>
-
-                            <li class="media">
-                                <div class="media-left">
-                                    <a href="#"
-                                       class="btn border-primary text-primary btn-flat btn-rounded btn-icon btn-sm"><i
-                                            class="icon-git-pull-request"></i></a>
-                                </div>
-
-                                <div class="media-body">
-                                    Have Carousel ignore keyboard events
-                                    <div class="media-annotation">Dec 12, 05:46</div>
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-                <!-- /revisions -->
-
-
-                <!-- Completeness stats -->
-                <div class="sidebar-category">
-                    <div class="category-title">
-                        <span>Completeness stats</span>
-                        <ul class="icons-list">
-                            <li><a href="#" data-action="collapse"></a></li>
-                        </ul>
-                    </div>
-
-                    <div class="category-content">
-                        <ul class="progress-list">
-                            <li>
-                                <label>Highest priority <span>80%</span></label>
-                                <div class="progress progress-xxs">
-                                    <div class="progress-bar progress-bar-danger" style="width: 80%">
-                                        <span class="sr-only">80% Complete</span>
-                                    </div>
-                                </div>
-                            </li>
-                            <li>
-                                <label>High priority <span>70%</span></label>
-                                <div class="progress progress-xxs">
-                                    <div class="progress-bar progress-bar-info" style="width: 70%">
-                                        <span class="sr-only">70% Complete</span>
-                                    </div>
-                                </div>
-                            </li>
-                            <li>
-                                <label>Normal priority <span>50%</span></label>
-                                <div class="progress progress-xxs">
-                                    <div class="progress-bar progress-bar-primary" style="width: 50%">
-                                        <span class="sr-only">50% Complete</span>
-                                    </div>
-                                </div>
-                            </li>
-                            <li>
-                                <label>Low prioruty <span>60%</span></label>
-                                <div class="progress progress-xxs">
-                                    <div class="progress-bar progress-bar-success" style="width: 60%">
-                                        <span class="sr-only">60% Complete</span>
-                                    </div>
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-                <!-- /completeness stats -->
 
             </div>
         </div>

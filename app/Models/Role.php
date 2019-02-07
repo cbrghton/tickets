@@ -1,11 +1,18 @@
 <?php
 
-namespace App;
+namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
 class Role extends Model
 {
+    /**
+     * The primary key for the model.
+     *
+     * @var string
+     */
+    protected $primaryKey = 'id_rol';
+
     /*
      * Genera la relación entre la tabla de Roles y de Usuarios
      *
@@ -13,6 +20,6 @@ class Role extends Model
      */
     public function users()
     {
-        return $this->belongsToMany('App\User');
+        return $this->belongsToMany('\App\User', 'role_user');
     }
 }

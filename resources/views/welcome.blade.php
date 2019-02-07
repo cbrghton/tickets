@@ -76,6 +76,7 @@
                     @endauth
                 </div>
             @endif
+            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aspernatur, illo praesentium at ducimus placeat dicta nobis facere corporis pariatur quas velit amet. Odio dignissimos labore natus ad vero nemo eum.</p>
 
             <div class="content">
                 <div class="title m-b-md">

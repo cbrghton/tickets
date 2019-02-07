@@ -2,30 +2,29 @@
 
 namespace App\Services;
 
-use App\Models\Solicitud;
 use App\Models\CatImagen;
+use App\Models\Solicitud;
 
 class TicketService
 {
-    public function edit($id_ticket, $incidence_ticket, $images_ticket, $id_system)
+    public function update(array $data)
     {
-        $ticket = Solicitud::findOrFail($id_ticket);
+        $data = array_filter($data);
 
-        $ticket->incidencia = $ticket->incidencia . ' ' . $incidence_ticket;
+        Solicitud::find($data['id_solicitud'])
+            ->update($data);
 
-        $ticket->sistema_id = $id_system;
+        if (array_key_exists('imagenes', $data)) {
+            foreach ($data['imagenes'] as $image_ticket) {
+                $image = new CatImagen();
 
-        foreach ($images_ticket as $image_ticket) {
-            $image = new CatImagen();
+                $image_ticket = base64_encode($image_ticket);
 
-            $image_ticket = base64_encode($image_ticket);
+                $image->imagen = $image_ticket;
+                $image->solicitud_id = $data['id_solicitud'];
 
-            $image->imagen = $image_ticket;
-            $image->solicitud_id = $id_ticket;
-
-            $image->save();
+                $image->save();
+            }
         }
-
-        return true;
     }
 }

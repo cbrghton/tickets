@@ -6,7 +6,7 @@ use App\User;
 
 class UserService
 {
-    public function edit(array $data)
+    public function update(array $data)
     {
         $data = array_filter($data);
 

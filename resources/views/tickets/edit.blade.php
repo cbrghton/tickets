@@ -10,15 +10,13 @@
 @section('title', 'Editar Ticket')
 
 @section('content')
-    {{ $errors }}
-
     <div class="panel panel-flat">
         <div class="panel-heading">
             <h6 class="panel-title">Editar Ticket</h6>
         </div>
 
         <div class="panel-body">
-            <form method="post" action="{{ route('edit.ticket') }}" enctype="multipart/form-data">
+            <form method="post" action="{{ route('ticket.update') }}" enctype="multipart/form-data">
                 @csrf
                 <div class="form-group">
                     <label>Descripción de la Incidencia:</label>
@@ -29,9 +27,9 @@
                 <div class="form-group">
                     <label>Información adicional:</label>
                     <span class="help-block">Esta información se agregara a la descripción de la incidencia</span>
-                    <textarea rows="5" cols="5" class="form-control" name="incidence" placeholder="Opcional"></textarea>
+                    <textarea rows="5" cols="5" class="form-control" name="incidencia" placeholder="Opcional"></textarea>
 
-                    @if ($errors->has('incidence'))
+                    @if ($errors->has('incidencia'))
                         <span class="help-block text-danger">
                                 <i class="icon-cancel-circle2 position-left"></i>
                                 Verifica tu información
@@ -41,19 +39,19 @@
 
                 <div class="form-group">
                     <label class="display-block">Agrega más imagenes:</label>
-                    <input type="file" name="images[]" class="file-input" multiple="multiple" data-show-upload="false">
+                    <input type="file" name="imagenes[]" class="file-input" multiple="multiple" data-show-upload="false">
 
-                    @if ($errors->has('images'))
+                    @if ($errors->has('imagenes'))
                         <span class="help-block text-danger">
                                 <i class="icon-cancel-circle2 position-left"></i>
-                                {{ $errors->first('images') }}
+                                {{ $errors->first('imagenes') }}
                             </span>
                     @endif
                 </div>
 
                 <div class="form-group">
-                    <label>Sistema Asociado</label>
-                    <select data-placeholder="Selecciona un sistema" class="select" name="system">
+                    <label for="id_sistema">Sistema Asociado</label>
+                    <select data-placeholder="Selecciona un sistema" class="select" name="id_sistema" id="id_sistema">
                         <option></option>
                         <optgroup label="Sistemas de Licencias">
                             <option value="AZ">Licencias A</option>
@@ -68,7 +66,7 @@
                         </optgroup>
                     </select>
 
-                    @if ($errors->has('system'))
+                    @if ($errors->has('id_sistema'))
                         <span class="help-block text-danger">
                                 <i class="icon-cancel-circle2 position-left"></i>
                                 Verifica tu información
@@ -76,7 +74,7 @@
                     @endif
                 </div>
 
-                <div class="text-right">
+                <div class="form-group text-right">
                     <a href="{{ route('home') }}">
                         <button type="button" class="btn btn-danger">Cancelar<i
                                 class="icon-arrow-left13 position-right"></i></button>
