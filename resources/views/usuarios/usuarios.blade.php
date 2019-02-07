@@ -28,12 +28,12 @@
                 </tr>
                 </thead>
                 <tbody>
-                @for($i = 1; $i <= 20; $i++)
-                    <tr role="row" class="{{$i%2 ? "even":"odd"}}">
-                        <td>Usuario{{$i}}</td>
-                        <td>XXXX000000</td>
-                        <td>Modulo</td>
-                        <td><span class="label label-{{$i%2 ? "danger":"success"}}">{{$i%2 ? "Baja":"Alta"}}</span></td>
+                @foreach($users as $user)
+                    <tr role="row">
+                        <td>{{$user->primer_apellido." ".$user->segundo_apellido." ".$user->nombre}}</td>
+                        <td>{{$user->rfc}}</td>
+                        <td>{{$user->cat_modulo->modulo}}</td>
+                        <td><span class="label label-{{$user->estatus == "ALTA" ? "success":"danger"}}">{{$user->estatus}}</span></td>
                         <td class="text-center">
                             <ul class="icons-list">
                                 <li class="dropdown">
@@ -41,14 +41,20 @@
                                         <i class="icon-menu9"></i>
                                     </a>
                                     <ul class="dropdown-menu dropdown-menu-right">
-                                        <li><a href="#"><i class="icon-vcard"></i> Editar Usuario</a></li>
-                                        <li><a href="#DeshabilitarUsuarioModal" data-toggle="modal" data-iduser="{{$i}}" class="DeshabilitarUsuarioClass"><i class="icon-user-block"></i> Deshabilitar</a></li>
+                                        <li>
+                                            <form action="{{'#')//route('user/edit') }}" method="post">
+                                                {{ csrf_field() }}
+                                                <input type="hidden" id="id_user" name="id_user" value="{{$user->id_user}}">
+                                                <button type="submit" class="btn btn-link"><i class="icon-vcard"></i> Editar Usuario</button>
+                                            </form>
+                                        </li>
+                                        <li><a href="#DeshabilitarUsuarioModal" data-toggle="modal" data-iduser="{{$user->id_user}}" class="DeshabilitarUsuarioClass"><i class="icon-user-block"></i> Deshabilitar</a></li>
                                     </ul>
                                 </li>
                             </ul>
                         </td>
                     </tr>
-                @endfor
+                @endforeach
                 </tbody>
             </table>
         </div>
@@ -65,11 +71,15 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    ¿Seguro que desea deshabilitar al <span id="NombreUsuarioSpan"></span>?
+                    <form action="#" method="post">
+                        {{ csrf_field() }}
+                        <input type="hidden" id="id_user_modal" name="id_user" value="">
+                        ¿Seguro que desea deshabilitar al usuario: <span id="NombreUsuarioSpan"></span>?
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-                    <button id="ConfirmarDeshabilitarUsuario" type="button" class="btn btn-primary">Confirmar</button>
+                    <button type="submit" class="btn btn-primary">Confirmar</button>
+                    </form>
                 </div>
             </div>
         </div>

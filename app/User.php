@@ -44,6 +44,11 @@ class User extends Authenticatable
         return $this->belongsToMany('App\Models\Role');
     }
 
+    public function cat_modulo()
+    {
+        return $this->belongsTo('App\Models\CatModulo','modulo_id');
+    }
+
     /*
      * Verifica que tenga un rol asignado
      *

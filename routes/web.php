@@ -19,9 +19,10 @@ Route::get('/', 'HomeController@index')->name('home');
 
 Route::post('user/edit', 'Auth\EditController@edit')->name('auth_edit');
 
-Route::get('users/show', function () {
+/*Route::get('users/show', function () {
     return view('usuarios.usuarios');
-});
+});*/
+Route::get('users/show', 'usuarios\UsuarioController@index')->name('see_users');
 
 Route::get('user/edit', function () {
     return view('auth.edit');

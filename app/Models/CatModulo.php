@@ -26,4 +26,9 @@ class CatModulo extends Model
      * @var bool
      */
     public $timestamps = false;
+
+    public function user()
+    {
+        return $this->hasMany('App\User','modulo_id');
+    }
 }

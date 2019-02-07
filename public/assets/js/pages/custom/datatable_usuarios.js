@@ -51,6 +51,7 @@ $(function() {
         var iduser = $(this).attr('data-iduser');
         var user = $(this).closest('tr').find('td').eq(0).text();
         $("#DeshabilitarUsuarioModal #NombreUsuarioSpan").text(user);
+        $("#DeshabilitarUsuarioModal #id_user_modal").val(iduser);
     };
 
 });
