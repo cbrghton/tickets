@@ -7,13 +7,13 @@ use App\Models\CatImagen;
 
 class TicketService
 {
-    public function edit($id_ticket, $incidence_ticket, $images_ticket, $id_system)
+    public function update(array $data)
     {
-        $ticket = Solicitud::findOrFail($id_ticket);
+        $data = array_filter($data);
 
-        $ticket->incidencia = $ticket->incidencia . ' ' . $incidence_ticket;
+        Solicitud::find($data['id_ticket']);
 
-        $ticket->sistema_id = $id_system;
+        /*$ticket->incidencia = $ticket->incidencia . ' ' . $incidence_ticket;
 
         foreach ($images_ticket as $image_ticket) {
             $image = new CatImagen();
@@ -26,6 +26,6 @@ class TicketService
             $image->save();
         }
 
-        return true;
+        return true;*/
     }
 }

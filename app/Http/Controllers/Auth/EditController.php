@@ -2,14 +2,21 @@
 
 namespace App\Http\Controllers\Auth;
 
+use App\Http\Controllers\Controller;
+use App\Models\Role;
 use App\Services\UserService;
 use App\Services\VerifyService;
-use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
 class EditController extends Controller
 {
-    public function edit(Request $request, UserService $UserService, VerifyService $verify)
+    public function edit()
+    {
+        return view('auth.edit')
+            ->with('roles', Role::all());
+    }
+
+    public function update(Request $request, UserService $UserService, VerifyService $verify)
     {
         if ($verify->verifyEmpty($request->all())) {
             return back();
@@ -25,6 +32,6 @@ class EditController extends Controller
             'password' => 'nullable|confirmed'
         ]);
 
-        $UserService->edit($request->all());
+        $UserService->update($request->all());
     }
 }

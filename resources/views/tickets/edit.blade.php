@@ -10,15 +10,13 @@
 @section('title', 'Editar Ticket')
 
 @section('content')
-    {{ $errors }}
-
     <div class="panel panel-flat">
         <div class="panel-heading">
             <h6 class="panel-title">Editar Ticket</h6>
         </div>
 
         <div class="panel-body">
-            <form method="post" action="{{ route('edit.ticket') }}" enctype="multipart/form-data">
+            <form method="post" action="{{ route('ticket.update') }}" enctype="multipart/form-data">
                 @csrf
                 <div class="form-group">
                     <label>Descripción de la Incidencia:</label>
@@ -52,8 +50,8 @@
                 </div>
 
                 <div class="form-group">
-                    <label>Sistema Asociado</label>
-                    <select data-placeholder="Selecciona un sistema" class="select" name="system">
+                    <label for="id_system">Sistema Asociado</label>
+                    <select data-placeholder="Selecciona un sistema" class="select" name="id_system" id="id_system">
                         <option></option>
                         <optgroup label="Sistemas de Licencias">
                             <option value="AZ">Licencias A</option>
@@ -76,7 +74,7 @@
                     @endif
                 </div>
 
-                <div class="text-right">
+                <div class="form-group text-right">
                     <a href="{{ route('home') }}">
                         <button type="button" class="btn btn-danger">Cancelar<i
                                 class="icon-arrow-left13 position-right"></i></button>

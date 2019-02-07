@@ -1,64 +1,67 @@
 @extends('layouts.app')
 
+@section('title','Crear Ticket')
+
 @push('assets')
     <script type="text/javascript" src="{{ asset('assets/js/plugins/forms/selects/select2.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('assets/js/plugins/uploaders/fileinput.min.js') }}"></script>
     <script type="text/javascript" src="{{ asset('assets/js/plugins/forms/styling/uniform.min.js') }}"></script>
     <script type="text/javascript" src="{{ asset('assets/js/pages/custom/editar_ticket.js') }}"></script>
 @endpush
-@section('title','Crear Ticket')
-@section('content')
 
+@section('content')
     <div class="panel panel-flat">
         <div class="panel-heading">
-            <h3>Nuevo Ticket </h3>
-            @if(count($errors)>0)
-                <div class="alert alert-danger">
-                    <ul>
-                        @foreach ($errors->all() as $error)
-                            <li>{{$error}}</li>
-                        @endforeach
-                    </ul>
-                </div>
+            <h5 class="panel-title">Nuevo Ticket</h5>
         </div>
-    </div>
-    @endif
-    <div class="panel-body">
-        <form>
-            <div class="col-lg-12 col-sm-12 col-md-12 col-xs-12">
-                <div class="form-group purple-border">
-                    <label for="Incidencia">Incidencia</label>
-                    <textarea class="form-control" name="incidencia" id="incidencia" rows="10" cols="20"
-                              onkeyup="mayus(this)"></textarea>
-                </div>
-            </div>
-
-            <div class="col-lg-12 col-sm-12 col-md-12 col-xs-12">
+        <div class="panel-body">
+            <form>
                 <div class="form-group">
-                    <label>Sistema</label>
-                    <select name="cat_sistema_id_sistema" id="cat_sistema_id_sistema" class="select">
+                    <label for="incidence">Incidencia</label>
+                    <textarea class="form-control" name="incidence" id="incidence" rows="5" cols="5"
+                              onkeyup="mayus(this)" required="required"></textarea>
+
+                    @if ($errors->has('incidence'))
+                        <span class="help-block text-danger">
+                                <i class="icon-cancel-circle2 position-left"></i>
+                                Verifica que ingreses bien tu información
+                        </span>
+                    @endif
+                </div>
+
+                <div class="form-group">
+                    <label for="id_system">Sistema</label>
+                    <select data-placeholder="Selecciona un sistema" name="id_system" id="id_system" class="select"
+                            required="required">
                         <option></option>
                         <option value="Alfred">Alfred</option>
                         <option value="Revista Taxi">Alfred</option>
                         <option value="Evee">Alfred</option>
-
                     </select>
-                </div>
-            </div>
 
-            <div class="col-lg-12 col-sm-12 col-md-12 col-xs-12">
+                    @if ($errors->has('id_system'))
+                        <span class="help-block text-danger">
+                                <i class="icon-cancel-circle2 position-left"></i>
+                                Verifica que ingreses bien tu información
+                        </span>
+                    @endif
+                </div>
+
                 <div class="form-group">
                     <label class="display-block">Agrega más imagenes:</label>
-                    <input type="file" class="file-styled">
+                    <input type="file" name="images[]" class="file-input" multiple="multiple" data-show-upload="false">
                 </div>
-            </div>
 
-            <div class="col-lg-12 col-sm-12 col-md-12 col-xs-12">
-                <div class="form-group">
-                    <button class="btn btn-primary" type="submit">Guardar</button>
-                    <button class="btn btn-danger" type="reset">Cancelar</button>
+                <div class="form-group text-right">
+                    <a href="{{ route('home') }}">
+                        <button type="button" class="btn btn-danger">Cancelar<i
+                                class="icon-arrow-left13 position-right"></i></button>
+                    </a>
+                    <button type="submit" class="btn btn-primary">Guardar datos<i
+                            class="icon-arrow-right14 position-right"></i></button>
                 </div>
-            </div>
-        </form>
+            </form>
+        </div>
     </div>
     <script>
         function mayus(e) {
