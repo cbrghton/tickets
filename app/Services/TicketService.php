@@ -15,7 +15,6 @@ class TicketService
             ->update($data);
 
         if (array_key_exists('imagenes', $data)) {
-
             foreach ($data['imagenes'] as $image_ticket) {
                 $image = new CatImagen();
 
