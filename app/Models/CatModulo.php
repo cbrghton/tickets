@@ -4,8 +4,19 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
+/**
+ * Class CatModulo
+ * @package App\Models
+ */
 class CatModulo extends Model
 {
+    /**
+     * Indicates if the model should be timestamped.
+     *
+     * @var bool
+     */
+    public $timestamps = false;
+
     /**
      * The table associated with the model.
      *
@@ -21,14 +32,12 @@ class CatModulo extends Model
     protected $primaryKey = 'id_modulo';
 
     /**
-     * Indicates if the model should be timestamped.
+     * Genera la relación entre la tabla de Modulos y de Usuarios
      *
-     * @var bool
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
-    public $timestamps = false;
-
-    public function user()
+    public function users()
     {
-        return $this->hasMany('App\User','modulo_id');
+        return $this->hasMany('App\User', 'modulo_id');
     }
 }

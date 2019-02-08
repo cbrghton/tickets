@@ -3,17 +3,23 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Models\CatModulo;
 use App\Models\Role;
 use App\Services\UserService;
 use App\Services\VerifyService;
+use App\User;
 use Illuminate\Http\Request;
 
 class EditController extends Controller
 {
-    public function edit()
+    public function edit(Request $request)
     {
         return view('auth.edit')
-            ->with('roles', Role::all());
+            ->with([
+                'roles' => Role::all(),
+                'user' => User::findOrFail($request->input('id_user')),
+                'modules' => CatModulo::all()
+            ]);
     }
 
     public function update(Request $request, UserService $UserService, VerifyService $verify)

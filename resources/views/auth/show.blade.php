@@ -32,8 +32,10 @@
                     <tr role="row">
                         <td>{{$user->primer_apellido." ".$user->segundo_apellido." ".$user->nombre}}</td>
                         <td>{{$user->rfc}}</td>
-                        <td>{{$user->cat_modulo->modulo}}</td>
-                        <td><span class="label label-{{$user->estatus == "ALTA" ? "success":"danger"}}">{{$user->estatus}}</span></td>
+                        <td>{{$user->module->modulo}}</td>
+                        <td><span
+                                class="label label-{{$user->estatus == "ALTA" ? "success":"danger"}}">{{$user->estatus}}</span>
+                        </td>
                         <td class="text-center">
                             <ul class="icons-list">
                                 <li class="dropdown">
@@ -42,13 +44,18 @@
                                     </a>
                                     <ul class="dropdown-menu dropdown-menu-right">
                                         <li>
-                                            <form action="{{'#')//route('user/edit') }}" method="post">
+                                            <form action="{{ route('auth.edit') }}" method="post">
                                                 {{ csrf_field() }}
-                                                <input type="hidden" id="id_user" name="id_user" value="{{$user->id_user}}">
-                                                <button type="submit" class="btn btn-link"><i class="icon-vcard"></i> Editar Usuario</button>
+                                                <input type="hidden" id="id_user" name="id_user"
+                                                       value="{{$user->id_user}}">
+                                                <button type="submit" class="btn btn-link"><i class="icon-vcard"></i>
+                                                    Editar Usuario
+                                                </button>
                                             </form>
                                         </li>
-                                        <li><a href="#DeshabilitarUsuarioModal" data-toggle="modal" data-iduser="{{$user->id_user}}" class="DeshabilitarUsuarioClass"><i class="icon-user-block"></i> Deshabilitar</a></li>
+                                        <li><a href="#DeshabilitarUsuarioModal" data-toggle="modal"
+                                               data-iduser="{{$user->id_user}}" class="DeshabilitarUsuarioClass"><i
+                                                    class="icon-user-block"></i> Deshabilitar</a></li>
                                     </ul>
                                 </li>
                             </ul>
@@ -61,7 +68,8 @@
     </div>
 
     <!-- Modal -->
-    <div class="modal fade" id="DeshabilitarUsuarioModal" tabindex="-1" role="dialog" aria-labelledby="DeshabilitarUsuarioModal" aria-hidden="true">
+    <div class="modal fade" id="DeshabilitarUsuarioModal" tabindex="-1" role="dialog"
+         aria-labelledby="DeshabilitarUsuarioModal" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
@@ -70,17 +78,19 @@
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
-                <div class="modal-body">
-                    <form action="#" method="post">
+                <form action="#" method="post">
+                    <div class="modal-body">
+
                         {{ csrf_field() }}
                         <input type="hidden" id="id_user_modal" name="id_user" value="">
                         ¿Seguro que desea deshabilitar al usuario: <span id="NombreUsuarioSpan"></span>?
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-                    <button type="submit" class="btn btn-primary">Confirmar</button>
-                    </form>
-                </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                        <button type="submit" class="btn btn-primary">Confirmar</button>
+
+                    </div>
+                </form>
             </div>
         </div>
     </div>

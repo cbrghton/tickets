@@ -2,9 +2,13 @@
 
 namespace App;
 
-use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Notifications\Notifiable;
 
+/**
+ * Class User
+ * @package App
+ */
 class User extends Authenticatable
 {
     use Notifiable;
@@ -35,21 +39,16 @@ class User extends Authenticatable
     ];
 
     /**
-     * Genera la relación entre la tabla de Roles y de Usuarios
+     * Genera la relación entre la tabla de Modulos y de Usuarios
      *
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     * @return \Illuminate\Database\Eloquent\Relations\HasOne
      */
-    public function roles()
+    public function module()
     {
-        return $this->belongsToMany('\App\Models\Role', 'role_user', 'user_id', 'rol_id');
+        return $this->hasOne('App\Models\CatModulo', 'id_modulo', 'modulo_id');
     }
 
-    public function cat_modulo()
-    {
-        return $this->belongsTo('App\Models\CatModulo','modulo_id');
-    }
-
-    /*
+    /**
      * Verifica que tenga un rol asignado
      *
      * @param string
@@ -62,5 +61,15 @@ class User extends Authenticatable
         }
 
         return false;
+    }
+
+    /**
+     * Genera la relación entre la tabla de Roles y de Usuarios
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     */
+    public function roles()
+    {
+        return $this->belongsToMany('\App\Models\Role', 'role_user', 'user_id', 'rol_id');
     }
 }

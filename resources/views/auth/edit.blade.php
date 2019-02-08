@@ -17,11 +17,11 @@
             <form method="post" action="{{ route('auth.update') }}">
                 @csrf
 
-                <input name="id_user" value="1" hidden="hidden">
+                <input name="id_user" value="{{ $user->id_user }}" hidden="hidden">
 
                 <div class="form-group">
                     <label> Nombre </label>
-                    <input type="text" name="nombre" class="form-control" placeholder="Nombre...."
+                    <input type="text" name="nombre" class="form-control" placeholder="{{ $user->nombre }}"
                            onkeyup="mayus(this)">
 
                     @if ($errors->has('nombre'))
@@ -35,7 +35,8 @@
 
                 <div class="form-group">
                     <label> Primer Apellido </label>
-                    <input type="text" name="primer_apellido" class="form-control" placeholder="Primer Apellido...."
+                    <input type="text" name="primer_apellido" class="form-control"
+                           placeholder="{{ $user->primer_apellido }}"
                            onkeyup="mayus(this)">
 
                     @if ($errors->has('primer_apellido'))
@@ -48,7 +49,8 @@
 
                 <div class="form-group">
                     <label> Segundo Apellido </label>
-                    <input type="text" name="segundo_apellido" class="form-control" placeholder="Segundo Apellido...."
+                    <input type="text" name="segundo_apellido" class="form-control"
+                           placeholder="{{ $user->segundo_apellido }}"
                            onkeyup="mayus(this)">
 
                     @if ($errors->has('segundo_apellido'))
@@ -62,11 +64,11 @@
 
                 <div class="form-group">
                     <label for="id_modulo"> Modulo </label>
-                    <select data-placeholder="Selecciona un modulo" class="select" name="id_modulo" id="id_modulo">
+                    <select data-placeholder="{{ $user->module->modulo }}" class="select" name="id_modulo" id="id_modulo">
                         <option></option>
-                        <option value="modulo">Insurgentes</option>
-                        <option value="modulo">Popotla</option>
-                        <option value="modulo">Pilares</option>
+                        @foreach($modules as $module)
+                            <option value="{{ $module->id_modulo }}">{{ $module->modulo }}</option>
+                        @endforeach
                     </select>
                 </div>
 
@@ -94,7 +96,7 @@
                     <select multiple="multiple" name="id_role" id="id_role" class="form-control listbox"
                             required="required">
                         @foreach($roles as $role)
-                            <option value="{{ $role->id_rol }}">{{ $role->descripcion }}</option>
+                            <option value="{{ $role->id_rol }}" {{ $user->hasRole($role->nombre) ? 'selected="selected"' : '' }}>{{ $role->descripcion }}</option>
                         @endforeach
                     </select>
                 </div>
@@ -105,9 +107,9 @@
             </form>
         </div>
     </div>
-        <script>
-            function mayus(e) {
-                e.value = e.value.toUpperCase();
-            }
-        </script>
+    <script>
+        function mayus(e) {
+            e.value = e.value.toUpperCase();
+        }
+    </script>
 @endsection
