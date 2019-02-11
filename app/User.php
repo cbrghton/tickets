@@ -45,7 +45,7 @@ class User extends Authenticatable
      */
     public function module()
     {
-        return $this->hasOne('App\Models\CatModulo', 'id_modulo', 'modulo_id');
+           return $this->hasOne('App\Models\CatModulo', 'id_modulo', 'modulo_id');
     }
 
     /**

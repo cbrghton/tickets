@@ -13,6 +13,15 @@ class Role extends Model
      */
     protected $primaryKey = 'id_rol';
 
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var array
+     */
+    protected $fillable = [
+        ''
+    ];
+
     /*
      * Genera la relación entre la tabla de Roles y de Usuarios
      *
