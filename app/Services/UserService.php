@@ -10,7 +10,14 @@ class UserService
     {
         $data = array_filter($data);
 
-        User::find($data['id_user'])
-            ->update($data);
+        $user = User::find($data['id_user']);
+
+        $user->update($data);
+
+        if (array_key_exists('id_rol', $data)) {
+            $user->roles()->sync($data['id_rol']);
+        } else {
+            $user->roles()->detach();
+        }
     }
 }

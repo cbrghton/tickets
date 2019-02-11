@@ -12,12 +12,12 @@ use Illuminate\Http\Request;
 
 class EditController extends Controller
 {
-    public function edit(Request $request)
+    public function edit($id)
     {
         return view('auth.edit')
             ->with([
                 'roles' => Role::all(),
-                'user' => User::findOrFail($request->input('id_user')),
+                'user' => User::findOrFail($id),
                 'modules' => CatModulo::all()
             ]);
     }
@@ -39,5 +39,7 @@ class EditController extends Controller
         ]);
 
         $UserService->update($request->all());
+
+        return redirect(route('auth.show'));
     }
 }

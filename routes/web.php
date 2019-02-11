@@ -17,12 +17,12 @@ Route::post('logout', 'Auth\LoginController@logout')->name('logout');
 
 Route::get('/', 'HomeController@index')->name('home');
 
-Route::middleware('auth')->namespace('Auth')->prefix('user')->name('auth.')->group(function () {
+Route::middleware(['auth'])->namespace('Auth')->prefix('user')->name('auth.')->group(function () {
     Route::post('update', 'EditController@update')->name('update');
 
     Route::get('show', 'ShowController')->name('show');
 
-    Route::post('edit', 'EditController@edit')->name('edit');
+    Route::get('edit/{id}', 'EditController@edit')->name('edit');
 
     Route::get('create', 'CreateController@create')->name('create');
 });

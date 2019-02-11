@@ -16,6 +16,8 @@ class ShowController extends Controller
     {
         $users = User::with('module')->get();
 
-        return view('auth.show', ['users' => $users]);
+        return view('auth.show', [
+            'users' => $users
+        ]);
     }
 }

@@ -1,22 +1,22 @@
 @extends('layouts.app')
+
+@section('title','Editar Usuario')
+
 @push('assets')
     <script type="text/javascript" src="{{ asset('assets/js/plugins/forms/selects/select2.min.js') }}"></script>
     <script type="text/javascript" src="{{ asset('assets/js/plugins/forms/styling/uniform.min.js') }}"></script>
-    <script type="text/javascript" src="{{ asset('assets/js/plugins/forms/inputs/duallistbox.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('assets/js/plugins/forms/selects/bootstrap_multiselect.js') }}"></script>
     <script type="text/javascript" src="{{ asset('assets/js/pages/custom/create_user.js') }}"></script>
 @endpush
 
-@section('title','Editar Usuario')
 @section('content')
-
     <div class="panel panel-flat">
         <div class="panel-heading">
-            <h3>Editar Usuario </h3>
+            <h5 class="panel-title">Editar Usuario </h5>
         </div>
         <div class="panel-body">
             <form method="post" action="{{ route('auth.update') }}">
                 @csrf
-
                 <input name="id_user" value="{{ $user->id_user }}" hidden="hidden">
 
                 <div class="form-group">
@@ -75,7 +75,7 @@
 
                 <div class="form-group">
                     <label for="password"> Password </label>
-                    <input type="password" name="password" class="form-control" placeholder="Password....">
+                    <input type="password" name="password" class="form-control" placeholder="Contraseña">
 
                     @if ($errors->has('password'))
                         <span class="help-block text-danger">
@@ -88,17 +88,18 @@
                 <div class="form-group">
                     <label for="password">Confirmar Password </label>
                     <input type="password" name="password_confirmed" class="form-control"
-                           placeholder="Confirmar Password....">
+                           placeholder="Confirmar Contraseña">
                 </div>
 
                 <div class="form-group">
-                    <label for="id_role">Selecciona los roles</label>
-                    <select multiple="multiple" name="id_role" id="id_role" class="form-control listbox"
-                            required="required">
-                        @foreach($roles as $role)
-                            <option value="{{ $role->id_rol }}" {{ $user->hasRole($role->nombre) ? 'selected="selected"' : '' }}>{{ $role->descripcion }}</option>
-                        @endforeach
-                    </select>
+                    <label for="id_rol">Selecciona los roles</label>
+                    <div class="multi-select-full">
+                        <select class="multiselect" multiple="multiple" name="id_rol" id="id_rol">
+                            @foreach($roles as $role)
+                                <option value="{{ $role->id_rol }}" {{ $user->hasRole($role->nombre) ? 'selected="selected"' : '' }}>{{ $role->descripcion }}</option>
+                            @endforeach
+                        </select>
+                    </div>
                 </div>
 
                 <div class="form-group text-right">

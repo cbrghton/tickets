@@ -44,10 +44,7 @@
                                     </a>
                                     <ul class="dropdown-menu dropdown-menu-right">
                                         <li>
-                                            <form action="{{ route('auth.edit') }}" method="post">
-                                                {{ csrf_field() }}
-                                                <input type="hidden" id="id_user" name="id_user"
-                                                       value="{{$user->id_user}}">
+                                            <form action="{{ route('auth.edit', ['id' => $user->id_user]) }}" method="get">
                                                 <button type="submit" class="btn btn-link"><i class="icon-vcard"></i>
                                                     Editar Usuario
                                                 </button>

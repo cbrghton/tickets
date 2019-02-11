@@ -4,12 +4,14 @@ $(function () {
         minimumResultsForSearch: Infinity
     });
 
-    $('.listbox').bootstrapDualListbox({
-        showFilterInputs: false,
-        infoText: 'Mostrando {0}',
-        infoTextEmpty: 'Vacio',
+    $('.multiselect').multiselect({
+        onChange: function() {
+            $.uniform.update();
+        },
+        nonSelectedText: 'Por favor selecciona alguno de los Roles',
+        includeSelectAllOption: true,
+        selectAllText: 'Seleccionar Todos',
     });
 
-
-
+    $(".styled, .multiselect-container input").uniform({ radioClass: 'choice'});
 });

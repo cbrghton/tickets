@@ -5,7 +5,8 @@
 @push('assets')
     <script type="text/javascript" src="{{ asset('assets/js/plugins/forms/selects/select2.min.js') }}"></script>
     <script type="text/javascript" src="{{ asset('assets/js/plugins/forms/styling/uniform.min.js') }}"></script>
-    <script type="text/javascript" src="{{ asset('assets/js/plugins/forms/inputs/duallistbox.min.js') }}"></script>
+    <script type="text/javascript"
+            src="{{ asset('assets/js/plugins/forms/selects/bootstrap_multiselect.js') }}"></script>
     <script type="text/javascript" src="{{ asset('assets/js/pages/custom/create_user.js') }}"></script>
 @endpush
 
@@ -18,7 +19,7 @@
             <form>
                 <div class="form-group">
                     <label>Nombre</label>
-                    <input type="text" name="nombre" class="form-control" placeholder="Nombre...."
+                    <input type="text" name="nombre" class="form-control" placeholder="Nombre"
                            onkeyup="mayus(this)" required="required">
 
                     @if ($errors->has('nombre'))
@@ -31,7 +32,7 @@
 
                 <div class="form-group">
                     <label>Primer Apellido</label>
-                    <input type="text" name="primer_apellido" class="form-control" placeholder="Primer Apellido...."
+                    <input type="text" name="primer_apellido" class="form-control" placeholder="Primer Apellido"
                            onkeyup="mayus(this)" required="required">
 
                     @if ($errors->has('primer_apellido'))
@@ -45,7 +46,7 @@
                 <div class="form-group">
                     <label>Segundo Apellido</label>
                     <input type="text" name="segundo_apellido" class="form-control"
-                           placeholder="Segundo Apellido...." onkeyup="mayus(this)" required="required">
+                           placeholder="Segundo Apellido" onkeyup="mayus(this)" required="required">
 
                     @if ($errors->has('segundo_apellido'))
                         <span class="help-block text-danger">
@@ -57,7 +58,7 @@
 
                 <div class="form-group">
                     <label>RFC</label>
-                    <input type="text" name="rfc" class="form-control" placeholder="RFC...." onkeyup="mayus(this)"
+                    <input type="text" name="rfc" class="form-control" placeholder="RFC" onkeyup="mayus(this)"
                            required="required">
 
                     @if ($errors->has('rfc'))
@@ -73,32 +74,33 @@
                     <select class="select" data-placeholder="Selecciona un modulo" name="id_modulo" id="id_modulo"
                             required="required">
                         <option></option>
-                        <option value="modulo">Insurgentes</option>
-                        <option value="modulo">Popotla</option>
-                        <option value="modulo">Pilares</option>
+                        @foreach($modules as $module)
+                            <option value="{{ $module->id_modulo }}">{{ $module->modulo }}</option>
+                        @endforeach
                     </select>
                 </div>
 
                 <div class="form-group">
                     <label>Password</label>
-                    <input type="password" name="password" class="form-control" placeholder="Password...."
+                    <input type="password" name="password" class="form-control" placeholder="Contraseña"
                            required="required">
                 </div>
 
                 <div class="form-group">
                     <label>Confirmar Password</label>
                     <input type="password" name="password_confirmed" class="form-control"
-                           placeholder="Confirmar Password..." required="required">
+                           placeholder="Confirmar Contraseña" required="required">
                 </div>
 
                 <div class="form-group">
                     <label for="id_rol">Selecciona los roles</label>
-                    <select multiple="multiple" name="id_rol" id="id_rol" class="form-control listbox"
-                            required="required">
-                        @foreach($roles as $role)
-                            <option value="{{ $role->id_rol }}">{{ $role->descripcion }}</option>
-                        @endforeach
-                    </select>
+                    <div class="multi-select-full">
+                        <select class="multiselect" multiple="multiple" name="id_rol" id="id_rol">
+                            @foreach($roles as $role)
+                                <option value="{{ $role->id_rol }}">{{ $role->descripcion }}</option>
+                            @endforeach
+                        </select>
+                    </div>
                 </div>
 
                 <div class="form-group text-right">
