@@ -44,11 +44,10 @@
                                     </a>
                                     <ul class="dropdown-menu dropdown-menu-right">
                                         <li>
-                                            <form action="{{ route('auth.edit', ['id' => $user->id_user]) }}" method="get">
-                                                <button type="submit" class="btn btn-link"><i class="icon-vcard"></i>
-                                                    Editar Usuario
-                                                </button>
-                                            </form>
+                                            <a href="{{ route('auth.edit', ['id' => $user->id_encrypt]) }}">
+                                                <i class="icon-vcard"></i>
+                                                Editar Usuario
+                                            </a>
                                         </li>
                                         <li><a href="#DeshabilitarUsuarioModal" data-toggle="modal"
                                                data-iduser="{{$user->id_user}}" class="DeshabilitarUsuarioClass"><i

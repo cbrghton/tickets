@@ -51,19 +51,11 @@
 
                 <div class="form-group">
                     <label for="id_sistema">Sistema Asociado</label>
-                    <select data-placeholder="Selecciona un sistema" class="select" name="id_sistema" id="id_sistema">
+                    <select data-placeholder="{{ $ticket->system->sistema }}" class="select" name="id_sistema" id="id_sistema">
                         <option></option>
-                        <optgroup label="Sistemas de Licencias">
-                            <option value="AZ">Licencias A</option>
-                            <option value="CO">Licencias B</option>
-                            <option value="ID">Licencias C</option>
-                            <option value="WY">Licencias D</option>
-                            <option value="WY">Licencias E</option>
-                        </optgroup>
-                        <optgroup label="Sistemas Vehiculares">
-                            <option value="AL">Oklahoma</option>
-                            <option value="IA">Taxi 2.0</option>
-                        </optgroup>
+                        @foreach($systems as $system)
+                            <option value="{{ $system->id_sistema }}">{{ $system->sistema }}</option>
+                        @endforeach
                     </select>
 
                     @if ($errors->has('id_sistema'))

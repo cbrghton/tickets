@@ -16,6 +16,13 @@ class ShowController extends Controller
     {
         $users = User::with('module')->get();
 
+        foreach ($users as $user) {
+            $id_encrypt = encrypt($user->id_user);
+            $user->id_encrypt = $id_encrypt;
+        }
+
+        //dd($users);
+
         return view('auth.show', [
             'users' => $users
         ]);

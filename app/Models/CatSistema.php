@@ -4,6 +4,10 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
+/**
+ * Class CatSistema
+ * @package App\Models
+ */
 class CatSistema extends Model
 {
     /**
@@ -26,4 +30,14 @@ class CatSistema extends Model
      * @var bool
      */
     public $timestamps = false;
+
+    /**
+     * Genera la relación entre la tabla de Sistema y de Solicitud
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function tickets()
+    {
+        return $this->hasMany('App\Models\Solicitud', 'sistema_id');
+    }
 }

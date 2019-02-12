@@ -31,14 +31,15 @@
                     </tr>
                     </thead>
                     <tbody>
-                    @for($i = 1; $i <= 20; $i++)
+                    @foreach($tickets as $ticket)
                         <tr>
-                            <td>2019{{$i}}</td>
-                            <td>Error {{$i}}</td>
-                            <td>29/01/2019</td>
-                            <td>Micro</td>
-                            <td><span class="label label-{{$i%2 ? "info":"success"}}">{{$i%2 ? "Pendiente":"Resuelto"}}</span>
-                            </td>
+                            <td>{{ $ticket->folio }}</td>
+                            <td>{{ substr($ticket->incidencia, 0, 70) . '...' }}</td>
+                            <td>{{ $ticket->created_at }}</td>
+                            <td>{{ $ticket->system->sistema }}</td>
+                            <td><span class="label label-{{ $ticket->estatus == 'PENDIENTE' ? "info":"success" }}">
+                                    {{ $ticket->estatus }}
+                                </span></td>
                             <td></td>
                             <td class="text-center">
                                 <ul class="icons-list">
@@ -47,15 +48,22 @@
                                             <i class="icon-menu9"></i>
                                         </a>
                                         <ul class="dropdown-menu dropdown-menu-right">
-                                            <li><a href="{{ route('ticket.edit') }}"><i class="icon-pencil4"></i> Editar</a>
+                                            <li>
+                                                <a href="{{ route('ticket.edit', ['id' => $ticket->id_encrypt]) }}">
+                                                    <i class="icon-pencil4 position-left"></i> Editar
+                                                </a>
                                             </li>
-                                            <li><a href="#"><i class="icon-reply"></i> Responder</a></li>
+                                            <li>
+                                                <a href="#">
+                                                    <i class="icon-reply position-left"></i> Responder
+                                                </a>
+                                            </li>
                                         </ul>
                                     </li>
                                 </ul>
                             </td>
                         </tr>
-                    @endfor
+                    @endforeach
                     </tbody>
                 </table>
             </div>

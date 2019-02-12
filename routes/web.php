@@ -33,9 +33,7 @@ Route::middleware('auth')->namespace('Ticket')->name('ticket.')->prefix('tickets
         return view('tickets.create');
     })->name('create');
 
-    Route::get('edit', function () {
-        return view('tickets.edit');
-    })->name('edit');
+    Route::get('edit/{id}', 'EditController@edit')->name('edit');
 
     Route::post('tickets/update', 'EditController@update')->name('update');
 
@@ -43,7 +41,5 @@ Route::middleware('auth')->namespace('Ticket')->name('ticket.')->prefix('tickets
         return (view('tickets.response'));
     })->name('response');
 
-    Route::get('show', function () {
-        return view('tickets.show');
-    })->name('show');
+    Route::get('show', 'ShowController')->name('show');
 });

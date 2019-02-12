@@ -17,7 +17,7 @@ class EditController extends Controller
         return view('auth.edit')
             ->with([
                 'roles' => Role::all(),
-                'user' => User::findOrFail($id),
+                'user' => User::findOrFail(decrypt($id)),
                 'modules' => CatModulo::all()
             ]);
     }

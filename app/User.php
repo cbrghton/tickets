@@ -45,7 +45,7 @@ class User extends Authenticatable
      */
     public function module()
     {
-           return $this->hasOne('App\Models\CatModulo', 'id_modulo', 'modulo_id');
+        return $this->hasOne('App\Models\CatModulo', 'id_modulo', 'modulo_id');
     }
 
     /**
@@ -71,5 +71,25 @@ class User extends Authenticatable
     public function roles()
     {
         return $this->belongsToMany('\App\Models\Role', 'role_user', 'user_id', 'rol_id');
+    }
+
+    /**
+     * Genera la relación entre la Solicitud y el Usuario que creó la Solicitud
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function ticket_create()
+    {
+        return $this->hasMany('App\Models\Solicitud', 'user_creacion_id');
+    }
+
+    /**
+     * Genera la relación entre la Solicitud y el Usuario que respondió la Solicitud
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function ticket_response()
+    {
+        return $this->hasMany('App\Models\Solicitud', 'user_respuesta_id');
     }
 }
