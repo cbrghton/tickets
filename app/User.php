@@ -78,7 +78,7 @@ class User extends Authenticatable
      *
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
-    public function ticket_create()
+    public function ticketCreate()
     {
         return $this->hasMany('App\Models\Solicitud', 'user_creacion_id');
     }
@@ -88,7 +88,7 @@ class User extends Authenticatable
      *
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
-    public function ticket_response()
+    public function ticketResponse()
     {
         return $this->hasMany('App\Models\Solicitud', 'user_respuesta_id');
     }

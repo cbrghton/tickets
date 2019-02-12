@@ -58,7 +58,7 @@ class Solicitud extends Model
      *
      * @return \Illuminate\Database\Eloquent\Relations\HasOne
      */
-    public function user_create()
+    public function userCreate()
     {
         return $this->hasOne('App\User', 'id_user', 'user_creacion_id');
     }
@@ -68,7 +68,7 @@ class Solicitud extends Model
      *
      * @return \Illuminate\Database\Eloquent\Relations\HasOne
      */
-    public function user_response()
+    public function userResponse()
     {
         return $this->hasOne('App\User', 'id_user', 'user_respuesta_id');
     }

@@ -20,8 +20,6 @@ class ShowController extends Controller
             $ticket->id_encrypt = encrypt($ticket->id_solicitud);
         }
 
-        return view('tickets.show')->with(
-            'tickets', $tickets
-        );
+        return view('tickets.show')->with('tickets', $tickets);
     }
 }

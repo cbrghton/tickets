@@ -20,7 +20,7 @@
                 @csrf
                 <div class="form-group">
                     <label>Descripción de la Incidencia:</label>
-                    <textarea rows="5" cols="5" class="form-control" placeholder="La incidencia"
+                    <textarea rows="5" cols="5" class="form-control" placeholder="{{ $ticket->incidencia }}"
                               readonly="readonly"></textarea>
                 </div>
 
