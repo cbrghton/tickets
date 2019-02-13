@@ -15,14 +15,11 @@ class CreateSolicitudTable extends Migration
     {
         Schema::create('solicitud', function (Blueprint $table) {
             $table->increments('id_solicitud');
-            $table->string('folio', 30)->unique();
             $table->text('incidencia');
             $table->enum('estatus', ['PENDIENTE', 'RESUELTO']);
             $table->integer('sistema_id')->unsigned();
             $table->integer('user_creacion_id')->unsigned();
             $table->integer('user_respuesta_id')->unsigned()->nullable();
-            $table->ipAddress('ip_user_creacion');
-            $table->ipAddress('ip_user_respuesta')->nullable();
             $table->timestamps();
             $table->softDeletes();
             $table->text('respuesta')->nullable();
