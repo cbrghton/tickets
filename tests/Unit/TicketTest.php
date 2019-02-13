@@ -17,6 +17,7 @@ class TicketTest extends TestCase
         $ticketService = new TicketService();
 
         $module = factory(\App\Models\CatModulo::class)->create();
+
         $user = factory(\App\User::class)->create([
             'modulo_id' => $module->id_modulo
         ]);
