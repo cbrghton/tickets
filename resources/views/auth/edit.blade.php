@@ -5,7 +5,8 @@
 @push('assets')
     <script type="text/javascript" src="{{ asset('assets/js/plugins/forms/selects/select2.min.js') }}"></script>
     <script type="text/javascript" src="{{ asset('assets/js/plugins/forms/styling/uniform.min.js') }}"></script>
-    <script type="text/javascript" src="{{ asset('assets/js/plugins/forms/selects/bootstrap_multiselect.js') }}"></script>
+    <script type="text/javascript"
+            src="{{ asset('assets/js/plugins/forms/selects/bootstrap_multiselect.js') }}"></script>
     <script type="text/javascript" src="{{ asset('assets/js/pages/custom/create_user.js') }}"></script>
 @endpush
 
@@ -64,7 +65,8 @@
 
                 <div class="form-group">
                     <label for="id_modulo"> Modulo </label>
-                    <select data-placeholder="{{ $user->module->modulo }}" class="select" name="id_modulo" id="id_modulo">
+                    <select data-placeholder="{{ $user->module->modulo }}" class="select" name="modulo_id"
+                            id="id_modulo">
                         <option></option>
                         @foreach($modules as $module)
                             <option value="{{ $module->id_modulo }}">{{ $module->modulo }}</option>
@@ -87,16 +89,17 @@
 
                 <div class="form-group">
                     <label for="password">Confirmar Password </label>
-                    <input type="password" name="password_confirmed" class="form-control"
+                    <input type="password" name="password_confirmation" class="form-control"
                            placeholder="Confirmar Contraseña">
                 </div>
 
                 <div class="form-group">
                     <label for="id_rol">Selecciona los roles</label>
                     <div class="multi-select-full">
-                        <select class="multiselect" multiple="multiple" name="id_rol" id="id_rol">
+                        <select class="multiselect" multiple="multiple" name="id_rol[]" id="id_rol">
                             @foreach($roles as $role)
-                                <option value="{{ $role->id_rol }}" {{ $user->hasRole($role->nombre) ? 'selected="selected"' : '' }}>{{ $role->descripcion }}</option>
+                                <option
+                                    value="{{ $role->id_rol }}" {{ $user->hasRole($role->nombre) ? 'selected="selected"' : '' }}>{{ $role->descripcion }}</option>
                             @endforeach
                         </select>
                     </div>

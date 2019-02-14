@@ -202,24 +202,24 @@
 
 
                 <!-- Task navigation -->
-                @role('manage_users')
-                    <div class="sidebar-category">
-                        <div class="category-title">
-                            <span>Administración</span>
-                            <ul class="icons-list">
-                                <li><a href="#" data-action="collapse"></a></li>
-                            </ul>
-                        </div>
-
-                        <div class="category-content no-padding">
-                            <ul class="navigation navigation-alt navigation-accordion">
-                                <li class="navigation-header">Acciones</li>
-                                <li><a href="{{ route('auth.create') }}"><i class="icon-user-plus"></i> Crear Usuario</a></li>
-                                <li><a href="{{ route('auth.show') }}"><i class="icon-collaboration"></i> Ver Usuarios</a></li>
-                            </ul>
-                        </div>
+                <div class="sidebar-category">
+                    <div class="category-title">
+                        <span>Administración</span>
+                        <ul class="icons-list">
+                            <li><a href="#" data-action="collapse"></a></li>
+                        </ul>
                     </div>
-                @endrole
+
+                    <div class="category-content no-padding">
+                        <ul class="navigation navigation-alt navigation-accordion">
+                            <li class="navigation-header">Acciones</li>
+                            <li><a href="{{ route('auth.create') }}"><i class="icon-user-plus"></i> Crear Usuario</a>
+                            </li>
+                            <li><a href="{{ route('auth.show') }}"><i class="icon-collaboration"></i> Ver Usuarios</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
                 <!-- /task navigation -->
 
             </div>

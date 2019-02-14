@@ -29,9 +29,9 @@ class EditController extends Controller
         }
 
         $validation = $request->validate([
-            'id_user' => 'required',
-            'id_modulo' => 'nullable',
-            'rfc' => 'nullable|max:15',
+            'id_user' => 'required|integer',
+            'modulo_id' => 'nullable',
+            'rfc' => 'nullable|max:15|unique:users',
             'nombre' => 'nullable|max:45',
             'primer_apellido' => 'nullable|string|max:45',
             'segundo_apellido' => 'nullable|string|max:45',

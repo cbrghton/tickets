@@ -20,4 +20,15 @@ class UserService
             $user->roles()->detach();
         }
     }
+
+    public function insert(array $data)
+    {
+        $user = User::create($data);
+
+        if (array_key_exists('id_rol', $data)) {
+            $user->roles()->sync($data['id_rol']);
+        } else {
+            $user->roles()->detach();
+        }
+    }
 }

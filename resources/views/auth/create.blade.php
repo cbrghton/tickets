@@ -16,7 +16,8 @@
             <h5 class="panel-title">Nuevo Usuario</h5>
         </div>
         <div class="panel-body">
-            <form>
+            <form method="post" action="{{ route('auth.insert') }}">
+                @csrf
                 <div class="form-group">
                     <label>Nombre</label>
                     <input type="text" name="nombre" class="form-control" placeholder="Nombre"
@@ -25,7 +26,7 @@
                     @if ($errors->has('nombre'))
                         <span class="help-block text-danger">
                                 <i class="icon-cancel-circle2 position-left"></i>
-                                Verifica que estes ingresando bien la información
+                                {{ $errors->first('nombre') }}
                             </span>
                     @endif
                 </div>
@@ -38,7 +39,7 @@
                     @if ($errors->has('primer_apellido'))
                         <span class="help-block text-danger">
                                 <i class="icon-cancel-circle2 position-left"></i>
-                                Verifica que estes ingresando bien la información
+                                {{ $errors->first('primer_apellido') }}
                             </span>
                     @endif
                 </div>
@@ -51,7 +52,7 @@
                     @if ($errors->has('segundo_apellido'))
                         <span class="help-block text-danger">
                                 <i class="icon-cancel-circle2 position-left"></i>
-                                Verifica que estes ingresando bien la información
+                                {{ $errors->first('segundo_apellido') }}
                             </span>
                     @endif
                 </div>
@@ -64,14 +65,14 @@
                     @if ($errors->has('rfc'))
                         <span class="help-block text-danger">
                                 <i class="icon-cancel-circle2 position-left"></i>
-                                Verifica que estes ingresando bien la información
+                                {{ $errors->first('rfc') }}
                             </span>
                     @endif
                 </div>
 
                 <div class="form-group">
                     <label for="id_modulo">Modulo</label>
-                    <select class="select" data-placeholder="Selecciona un modulo" name="id_modulo" id="id_modulo"
+                    <select class="select" data-placeholder="Selecciona un modulo" name="modulo" id="id_modulo"
                             required="required">
                         <option></option>
                         @foreach($modules as $module)
@@ -84,18 +85,25 @@
                     <label>Password</label>
                     <input type="password" name="password" class="form-control" placeholder="Contraseña"
                            required="required">
+
+                    @if ($errors->has('password'))
+                        <span class="help-block text-danger">
+                                <i class="icon-cancel-circle2 position-left"></i>
+                                {{ $errors->first('password') }}
+                            </span>
+                    @endif
                 </div>
 
                 <div class="form-group">
                     <label>Confirmar Password</label>
-                    <input type="password" name="password_confirmed" class="form-control"
+                    <input type="password" name="password_confirmation" class="form-control"
                            placeholder="Confirmar Contraseña" required="required">
                 </div>
 
                 <div class="form-group">
                     <label for="id_rol">Selecciona los roles</label>
                     <div class="multi-select-full">
-                        <select class="multiselect" multiple="multiple" name="id_rol" id="id_rol">
+                        <select class="multiselect" multiple="multiple" name="id_rol[]" id="id_rol">
                             @foreach($roles as $role)
                                 <option value="{{ $role->id_rol }}">{{ $role->descripcion }}</option>
                             @endforeach
