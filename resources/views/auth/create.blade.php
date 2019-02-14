@@ -70,6 +70,10 @@
                     @endif
                 </div>
 
+
+
+
+
                 <div class="form-group">
                     <label for="id_modulo">Modulo</label>
                     <select class="select" data-placeholder="Selecciona un modulo" name="modulo" id="id_modulo"
