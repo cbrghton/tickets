@@ -72,7 +72,7 @@
 
                 <div class="form-group">
                     <label for="id_modulo">Modulo</label>
-                    <select class="select" data-placeholder="Selecciona un modulo" name="modulo" id="id_modulo"
+                    <select class="select" data-placeholder="Selecciona un modulo" name="modulo_id" id="id_modulo"
                             required="required">
                         <option></option>
                         @foreach($modules as $module)
