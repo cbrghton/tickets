@@ -15,7 +15,8 @@
             <h5 class="panel-title">Nuevo Ticket</h5>
         </div>
         <div class="panel-body">
-            <form>
+            <form method="post" action="{{ route('ticket.insert') }}" enctype="multipart/form-data">
+                @csrf
                 <div class="form-group">
                     <label for="incidencia">Incidencia</label>
                     <textarea class="form-control" name="incidencia" id="incidencia" rows="5" cols="5"
@@ -24,22 +25,22 @@
                     @if ($errors->has('incidencia'))
                         <span class="help-block text-danger">
                                 <i class="icon-cancel-circle2 position-left"></i>
-                                Verifica que ingreses bien tu información
+                                {{ $errors->first('incidencia') }}
                         </span>
                     @endif
                 </div>
 
                 <div class="form-group">
                     <label for="id_sistema">Sistema</label>
-                    <select data-placeholder="Selecciona un sistema" name="id_system" id="id_sistema" class="select"
+                    <select data-placeholder="Selecciona un sistema" name="sistema_id" id="id_sistema" class="select"
                             required="required">
                         <option></option>
-                        <option value="Alfred">Alfred</option>
-                        <option value="Revista Taxi">Alfred</option>
-                        <option value="Evee">Alfred</option>
+                        @foreach($systems as $system)
+                            <option value="{{ $system->id_sistema }}">{{ $system->sistema }}</option>
+                        @endforeach
                     </select>
 
-                    @if ($errors->has('id_sistema'))
+                    @if ($errors->has('sistema_id'))
                         <span class="help-block text-danger">
                                 <i class="icon-cancel-circle2 position-left"></i>
                                 Verifica que ingreses bien tu información
@@ -50,6 +51,13 @@
                 <div class="form-group">
                     <label class="display-block">Agrega más imagenes:</label>
                     <input type="file" name="imagenes[]" class="file-input" multiple="multiple" data-show-upload="false">
+
+                    @if ($errors->has('imagenes'))
+                        <span class="help-block text-danger">
+                                <i class="icon-cancel-circle2 position-left"></i>
+                                Verifica que ingreses bien tu información
+                        </span>
+                    @endif
                 </div>
 
                 <div class="form-group text-right">

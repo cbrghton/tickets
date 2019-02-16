@@ -4,6 +4,7 @@ namespace App\Services;
 
 use App\Models\CatImagen;
 use App\Models\Solicitud;
+use Illuminate\Support\Facades\Auth;
 
 class TicketService
 {
@@ -25,6 +26,26 @@ class TicketService
 
                 $image->save();
             }
+        }
+    }
+
+    public function insert(array $data)
+    {
+        $ticket = Solicitud::create([
+            'incidencia' => $data['incidencia'],
+            'sistema_id' => $data['sistema_id'],
+            'user_creacion_id' => Auth::id(),
+        ]);
+
+        foreach ($data['imagenes'] as $image_ticket) {
+             $image = new CatImagen();
+
+            $image_ticket = base64_encode(file_get_contents($image_ticket));
+
+            $image->imagen = $image_ticket;
+            $image->solicitud_id = $ticket->id_solicitud;
+
+            $image->save();
         }
     }
 }

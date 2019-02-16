@@ -33,7 +33,7 @@
                     <tbody>
                     @foreach($tickets as $ticket)
                         <tr>
-                            <td>{{ $ticket->folio }}</td>
+                            <td>{{ $ticket->id_solicitud }}</td>
                             <td>{{ substr($ticket->incidencia, 0, 70) . '...' }}</td>
                             <td>{{ $ticket->created_at }}</td>
                             <td>{{ $ticket->system->sistema }}</td>

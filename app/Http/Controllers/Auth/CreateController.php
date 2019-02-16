@@ -21,14 +21,14 @@ class CreateController extends Controller
 
     public function insert(Request $request, UserService $userService)
     {
-        /*$validation = $request->validate([
+        $validation = $request->validate([
             'modulo_id' => 'required|integer',
             'rfc' => 'required|max:15|unique:users',
             'nombre' => 'required|max:45',
             'primer_apellido' => 'required|string|max:45',
             'segundo_apellido' => 'required|string|max:45',
             'password' => 'required|confirmed'
-        ]);*/
+        ]);
 
         $userService->insert($request->all());
 

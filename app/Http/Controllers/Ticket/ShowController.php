@@ -14,7 +14,7 @@ class ShowController extends Controller
      */
     public function __invoke()
     {
-        $tickets = Solicitud::with('system', 'user_create', 'user_response')->get();
+        $tickets = Solicitud::with('system', 'userCreate', 'userResponse')->get();
 
         foreach ($tickets as $ticket) {
             $ticket->id_encrypt = encrypt($ticket->id_solicitud);

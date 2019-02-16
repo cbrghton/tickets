@@ -31,9 +31,9 @@ Route::middleware(['auth'])->namespace('Auth')->prefix('user')->name('auth.')->g
 
 
 Route::middleware('auth')->namespace('Ticket')->name('ticket.')->prefix('tickets')->group(function () {
-    Route::get('create', function () {
-        return view('tickets.create');
-    })->name('create');
+    Route::get('create', 'CreateController@create')->name('create');
+
+    Route::post('insert', 'CreateController@insert')->name('insert');
 
     Route::get('edit/{id}', 'EditController@edit')->name('edit');
 

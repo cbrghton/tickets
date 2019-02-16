@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
+use Illuminate\Support\Facades\DB;
 
 class CreateCatImagenTable extends Migration
 {
@@ -15,7 +16,6 @@ class CreateCatImagenTable extends Migration
     {
         Schema::create('cat_imagen', function (Blueprint $table) {
             $table->increments('id_imagen');
-            $table->binary('imagen');
             $table->integer('solicitud_id')->unsigned();
             $table->timestamps();
 
@@ -25,6 +25,8 @@ class CreateCatImagenTable extends Migration
                 ->onUpdate('cascade')
                 ->onDelete('cascade');
         });
+
+        DB::statement('ALTER TABLE cat_imagen ADD imagen LONGBLOB NOT NULL AFTER id_imagen');
     }
 
     /**
