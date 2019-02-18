@@ -37,11 +37,11 @@ Route::middleware('auth')->namespace('Ticket')->name('ticket.')->prefix('tickets
 
     Route::get('edit/{id}', 'EditController@edit')->name('edit');
 
-    Route::post('tickets/update', 'EditController@update')->name('update');
+    Route::post('update', 'EditController@update')->name('update');
 
-    Route::get('response', function () {
-        return (view('tickets.response'));
-    })->name('response');
+    Route::get('view/{id}', 'ResponseController@view')->name('view');
+
+    Route::post('response', 'ResponseController@response')->name('response');
 
     Route::get('show', 'ShowController')->name('show');
 });

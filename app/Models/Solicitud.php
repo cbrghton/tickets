@@ -40,7 +40,7 @@ class Solicitud extends Model
      * @var array
      */
     protected $fillable = [
-        'incidencia', 'sistema_id', 'user_creacion_id'
+        'incidencia', 'sistema_id', 'user_creacion_id', 'respuesta', 'estatus'
     ];
 
     /**
@@ -71,5 +71,15 @@ class Solicitud extends Model
     public function userResponse()
     {
         return $this->hasOne('App\User', 'id_user', 'user_respuesta_id');
+    }
+
+    /**
+     * Genera la relación entre la Solicitud y las Imagenes
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function images()
+    {
+        return $this->hasMany('App\Models\CatImagen', 'solicitud_id');
     }
 }

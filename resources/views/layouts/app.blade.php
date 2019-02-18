@@ -172,7 +172,7 @@
                 <!-- Action buttons -->
                 <div class="sidebar-category">
                     <div class="category-title">
-                        <span>Acciones</span>
+                        <span>Tickets</span>
                         <ul class="icons-list">
                             <li><a href="#" data-action="collapse"></a></li>
                         </ul>
@@ -204,20 +204,30 @@
                 <!-- Task navigation -->
                 <div class="sidebar-category">
                     <div class="category-title">
-                        <span>Administración</span>
+                        <span>Usuarios</span>
                         <ul class="icons-list">
                             <li><a href="#" data-action="collapse"></a></li>
                         </ul>
                     </div>
 
-                    <div class="category-content no-padding">
-                        <ul class="navigation navigation-alt navigation-accordion">
-                            <li class="navigation-header">Acciones</li>
-                            <li><a href="{{ route('auth.create') }}"><i class="icon-user-plus"></i> Crear Usuario</a>
-                            </li>
-                            <li><a href="{{ route('auth.show') }}"><i class="icon-collaboration"></i> Ver Usuarios</a>
-                            </li>
-                        </ul>
+                    <div class="category-content">
+                        <div class="row">
+                            <div class="col-xs-6">
+                                <a href="{{ route('auth.create') }}">
+                                    <button class="btn bg-purple-400 btn-block btn-float btn-float-lg text-size-small"
+                                            type="button"><i class="fas fa-user-plus"></i><span>Crear Usuario</span>
+                                    </button>
+                                </a>
+                            </div>
+
+                            <div class="col-xs-6">
+                                <a href="{{ route('auth.show') }}">
+                                    <button class="btn bg-blue-400 btn-block btn-float btn-float-lg text-size-small"
+                                            type="button"><i class="fas fa-users"></i><span>Ver Usuarios</span>
+                                    </button>
+                                </a>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <!-- /task navigation -->

@@ -50,7 +50,8 @@
 
                 <div class="form-group">
                     <label class="display-block">Agrega más imagenes:</label>
-                    <input type="file" name="imagenes[]" class="file-input" multiple="multiple" data-show-upload="false">
+                    <input type="file" name="imagenes[]" class="file-input" multiple="multiple"
+                           data-show-upload="false">
 
                     @if ($errors->has('imagenes'))
                         <span class="help-block text-danger">

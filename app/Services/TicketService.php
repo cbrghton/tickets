@@ -38,7 +38,7 @@ class TicketService
         ]);
 
         foreach ($data['imagenes'] as $image_ticket) {
-             $image = new CatImagen();
+            $image = new CatImagen();
 
             $image_ticket = base64_encode(file_get_contents($image_ticket));
 

@@ -2,11 +2,10 @@
 
 namespace App\Http\Controllers\Ticket;
 
-use App\Services\TicketService;
-use App\Services\VerifyService;
-use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\CatSistema;
+use App\Services\TicketService;
+use Illuminate\Http\Request;
 
 class CreateController extends Controller
 {

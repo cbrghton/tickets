@@ -54,7 +54,7 @@
                                                 </a>
                                             </li>
                                             <li>
-                                                <a href="#">
+                                                <a href="{{ route('ticket.view', ['id' => $ticket->id_encrypt]) }}">
                                                     <i class="icon-reply position-left"></i> Responder
                                                 </a>
                                             </li>
