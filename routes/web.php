@@ -17,6 +17,8 @@ Route::post('logout', 'Auth\LoginController@logout')->name('logout');
 
 Route::get('/', 'HomeController@index')->name('home');
 
+Route::post('user/reset/password', 'Auth\ResetPasswordController@reset')->name('auth.reset')->middleware('auth');
+
 Route::middleware(['auth', 'role:manage_users'])->namespace('Auth')->prefix('user')->name('auth.')->group(function () {
     Route::get('show', 'ShowController')->name('show');
 
