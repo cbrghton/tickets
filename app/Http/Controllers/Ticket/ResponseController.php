@@ -18,6 +18,7 @@ class ResponseController extends Controller
     public function response(Request $request, TicketService $ticketService)
     {
         $validation = $request->validate([
+            'id_solicitud' => 'required|exists:solicitud,id_solicitud',
             'respuesta' => 'required|string',
             'estatus' => [
                 'required',

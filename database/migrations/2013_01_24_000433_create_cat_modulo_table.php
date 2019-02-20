@@ -15,9 +15,7 @@ class CreateCatModuloTable extends Migration
     {
         Schema::create('cat_modulo', function (Blueprint $table) {
             $table->increments('id_modulo');
-            $table->char('clave_modulo', 5)->nullable();
             $table->string('modulo', 45);
-            $table->enum('estatus', ['ALTA', 'BAJA']);
         });
     }
 

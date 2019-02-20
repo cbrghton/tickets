@@ -1,4 +1,8 @@
 $(function() {
+    $('.select').select2({
+        minimumResultsForSearch: Infinity
+    });
+
     // Table setup
     // ------------------------------
 

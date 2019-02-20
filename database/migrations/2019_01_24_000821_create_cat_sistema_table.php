@@ -15,9 +15,7 @@ class CreateCatSistemaTable extends Migration
     {
         Schema::create('cat_sistema', function (Blueprint $table) {
             $table->increments('id_sistema');
-            $table->char('clave_sistema', 5)->nullable();
             $table->string('sistema', 45);
-            $table->enum('estatus', ['ALTA', 'BAJA']);
         });
     }
 

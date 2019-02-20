@@ -74,6 +74,17 @@
                     </select>
                 </div>
 
+                <div class="form-group">
+                    <label for="id_rol">Selecciona los roles</label>
+                    <div class="multi-select-full">
+                        <select class="multiselect" multiple="multiple" name="id_rol[]" id="id_rol">
+                            @foreach($roles as $role)
+                                <option
+                                    value="{{ $role->id_rol }}" {{ $user->hasRole($role->nombre) ? 'selected="selected"' : '' }}>{{ $role->descripcion }}</option>
+                            @endforeach
+                        </select>
+                    </div>
+                </div>
 
                 <div class="form-group">
                     <label for="password"> Password </label>
@@ -91,18 +102,6 @@
                     <label for="password">Confirmar Password </label>
                     <input type="password" name="password_confirmation" class="form-control"
                            placeholder="Confirmar Contraseña">
-                </div>
-
-                <div class="form-group">
-                    <label for="id_rol">Selecciona los roles</label>
-                    <div class="multi-select-full">
-                        <select class="multiselect" multiple="multiple" name="id_rol[]" id="id_rol">
-                            @foreach($roles as $role)
-                                <option
-                                    value="{{ $role->id_rol }}" {{ $user->hasRole($role->nombre) ? 'selected="selected"' : '' }}>{{ $role->descripcion }}</option>
-                            @endforeach
-                        </select>
-                    </div>
                 </div>
 
                 <div class="form-group text-right">

@@ -40,7 +40,7 @@
                             <td><span class="label label-{{ $ticket->estatus == 'PENDIENTE' ? "info":"success" }}">
                                     {{ $ticket->estatus }}
                                 </span></td>
-                            <td></td>
+                            <td>{{ $ticket->userResponse ? $ticket->userResponse->nombre : 'SIN ASIGNAR' }}</td>
                             <td class="text-center">
                                 <ul class="icons-list">
                                     <li class="dropdown">
@@ -48,6 +48,11 @@
                                             <i class="icon-menu9"></i>
                                         </a>
                                         <ul class="dropdown-menu dropdown-menu-right">
+                                            <li>
+                                                <a href="" data-toggle="modal" data-target="#modal_assign">
+                                                    <i class="glyphicon glyphicon-pushpin position-left"></i> Asignar
+                                                </a>
+                                            </li>
                                             <li>
                                                 <a href="{{ route('ticket.edit', ['id' => $ticket->id_encrypt]) }}">
                                                     <i class="icon-pencil4 position-left"></i> Editar
@@ -63,6 +68,8 @@
                                 </ul>
                             </td>
                         </tr>
+
+                        @include('tickets.assign')
                     @endforeach
                     </tbody>
                 </table>

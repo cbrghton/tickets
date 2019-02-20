@@ -17,7 +17,7 @@ Route::post('logout', 'Auth\LoginController@logout')->name('logout');
 
 Route::get('/', 'HomeController@index')->name('home');
 
-Route::middleware(['auth'])->namespace('Auth')->prefix('user')->name('auth.')->group(function () {
+Route::middleware(['auth', 'role:manage_users'])->namespace('Auth')->prefix('user')->name('auth.')->group(function () {
     Route::get('show', 'ShowController')->name('show');
 
     Route::get('edit/{id}', 'EditController@edit')->name('edit');
@@ -31,17 +31,24 @@ Route::middleware(['auth'])->namespace('Auth')->prefix('user')->name('auth.')->g
 
 
 Route::middleware('auth')->namespace('Ticket')->name('ticket.')->prefix('tickets')->group(function () {
-    Route::get('create', 'CreateController@create')->name('create');
 
-    Route::post('insert', 'CreateController@insert')->name('insert');
+    Route::middleware('role:create_ticket')->group(function () {
+        Route::get('create', 'CreateController@create')->name('create');
 
-    Route::get('edit/{id}', 'EditController@edit')->name('edit');
+        Route::post('insert', 'CreateController@insert')->name('insert');
 
-    Route::post('update', 'EditController@update')->name('update');
+        Route::get('edit/{id}', 'EditController@edit')->name('edit');
 
-    Route::get('view/{id}', 'ResponseController@view')->name('view');
+        Route::post('update', 'EditController@update')->name('update');
+    });
 
-    Route::post('response', 'ResponseController@response')->name('response');
+    Route::middleware('role:response_ticket')->group(function () {
+        Route::get('view/{id}', 'ResponseController@view')->name('view');
+
+        Route::post('response', 'ResponseController@response')->name('response');
+    });
+
+    Route::post('assign', 'AssignController')->name('assign')->middleware('role:assign_ticket');
 
     Route::get('show', 'ShowController')->name('show');
 });

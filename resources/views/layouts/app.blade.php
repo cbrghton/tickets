@@ -35,7 +35,6 @@
 
     <!-- Theme JS files -->
     @stack('assets')
-    @include('auth.passwords.reset')
     <script type="text/javascript" src="{{ asset('assets/js/core/app.js') }}"></script>
     <!-- /theme JS files -->
 
@@ -255,6 +254,10 @@
 
 </div>
 <!-- /page container -->
+
+<!-- Modals -->
+@include('auth.passwords.reset')
+<!-- /Modals -->
 
 <!-- Footer -->
 <div class="navbar navbar-default navbar-fixed-bottom footer">

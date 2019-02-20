@@ -40,7 +40,7 @@ class Solicitud extends Model
      * @var array
      */
     protected $fillable = [
-        'incidencia', 'sistema_id', 'user_creacion_id', 'respuesta', 'estatus'
+        'incidencia', 'sistema_id', 'user_creacion_id', 'respuesta', 'estatus', 'user_respuesta_id'
     ];
 
     /**

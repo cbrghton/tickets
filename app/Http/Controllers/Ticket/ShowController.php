@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Ticket;
 
 use App\Http\Controllers\Controller;
 use App\Models\Solicitud;
+use App\User;
 
 class ShowController extends Controller
 {
@@ -20,6 +21,9 @@ class ShowController extends Controller
             $ticket->id_encrypt = encrypt($ticket->id_solicitud);
         }
 
-        return view('tickets.show')->with('tickets', $tickets);
+        return view('tickets.show')->with([
+            'tickets' => $tickets,
+            'users' => User::all()
+        ]);
     }
 }
