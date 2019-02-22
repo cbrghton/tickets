@@ -179,6 +179,7 @@
 
                     <div class="category-content">
                         <div class="row">
+                            @role('create_ticket')
                             <div class="col-xs-6">
                                 <a href="{{ route('ticket.create') }}">
                                     <button class="btn bg-teal-400 btn-block btn-float btn-float-lg text-size-small"
@@ -186,6 +187,7 @@
                                     </button>
                                 </a>
                             </div>
+                            @endrole
 
                             <div class="col-xs-6">
                                 <a href="{{ route('ticket.show') }}">
@@ -199,7 +201,7 @@
                 </div>
                 <!-- /action buttons -->
 
-
+                @role('manage_users')
                 <!-- Task navigation -->
                 <div class="sidebar-category">
                     <div class="category-title">
@@ -230,6 +232,7 @@
                     </div>
                 </div>
                 <!-- /task navigation -->
+                @endrole
 
             </div>
         </div>

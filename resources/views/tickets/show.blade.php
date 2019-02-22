@@ -48,28 +48,55 @@
                                             <i class="icon-menu9"></i>
                                         </a>
                                         <ul class="dropdown-menu dropdown-menu-right">
-                                            <li>
-                                                <a href="" data-toggle="modal" data-target="#modal_assign">
-                                                    <i class="glyphicon glyphicon-pushpin position-left"></i> Asignar
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="{{ route('ticket.edit', ['id' => $ticket->id_encrypt]) }}">
-                                                    <i class="icon-pencil4 position-left"></i> Editar
-                                                </a>
-                                            </li>
+                                            @role('assign_ticket')
+                                            @if($ticket->estatus == 'PENDIENTE')
+                                                <li>
+                                                    <a href="" data-toggle="modal" data-target="#modal_assign">
+                                                        <i class="glyphicon glyphicon-pushpin position-left"></i>
+                                                        Asignar
+                                                    </a>
+                                                </li>
+                                            @endif
+                                            @endrole
+
+                                            @role('create_ticket')
+                                            @if($ticket->estatus == 'PENDIENTE' && !($ticket->userResponse))
+                                                <li>
+                                                    <a href="{{ route('ticket.edit', ['id' => $ticket->id_encrypt]) }}">
+                                                        <i class="icon-pencil4 position-left"></i> Editar
+                                                    </a>
+                                                </li>
+                                            @endif
+                                            @endrole
+
+                                            @role('response_ticket')
+                                            @if($ticket->estatus == 'PENDIENTE')
                                             <li>
                                                 <a href="{{ route('ticket.view', ['id' => $ticket->id_encrypt]) }}">
                                                     <i class="icon-reply position-left"></i> Responder
                                                 </a>
                                             </li>
+                                            @endif
+                                            @endrole
+
+                                            @if($ticket->estatus == 'RESUELTO' || $ticket->userResponse)
+                                                <li>
+                                                    <a href="{{ route('ticket.view', ['id' => $ticket->id_encrypt]) }}">
+                                                        <i class="icon-reply position-left"></i> Ver
+                                                    </a>
+                                                </li>
+                                            @endif
                                         </ul>
                                     </li>
                                 </ul>
                             </td>
                         </tr>
 
-                        @include('tickets.assign')
+                        @role('assign_ticket')
+                        @if($ticket->estatus == 'PENDIENTE')
+                            @include('tickets.assign')
+                        @endif
+                        @endrole
                     @endforeach
                     </tbody>
                 </table>
