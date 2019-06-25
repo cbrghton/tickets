@@ -24,6 +24,7 @@
     <script type="text/javascript" src="{{ asset('assets/js/plugins/ui/nicescroll.min.js') }}"></script>
     <script type="text/javascript" src="{{ asset('assets/js/plugins/ui/drilldown.js') }}"></script>
     <script type="text/javascript" src="{{ asset('assets/js/plugins/ui/fab.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('assets/js/pages/custom/helpers.js') }}"></script>
     <!-- /core JS files -->
 
 
@@ -71,7 +72,7 @@
 
                     <div class="form-group has-feedback has-feedback-left{{ $errors->has('rfc') ? ' has-error' : '' }}">
                         <input type="text" class="form-control"
-                               placeholder="RFC" name="rfc">
+                               placeholder="RFC" name="rfc" onkeyup="toUpperCase(this)">
                         <div class="form-control-feedback">
                             <i class="icon-user text-muted"></i>
                         </div>

@@ -31,6 +31,7 @@
     <script type="text/javascript" src="{{ asset('assets/js/plugins/ui/nicescroll.min.js') }}"></script>
     <script type="text/javascript" src="{{ asset('assets/js/plugins/ui/drilldown.js') }}"></script>
     <script type="text/javascript" src="{{ asset('assets/js/plugins/ui/fab.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('assets/js/pages/custom/helpers.js') }}"></script>
     <!-- /core JS files -->
 
     <!-- Theme JS files -->

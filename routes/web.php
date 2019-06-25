@@ -45,10 +45,10 @@ Route::middleware('auth')->namespace('Ticket')->name('ticket.')->prefix('tickets
     });
 
     Route::middleware('role:response_ticket')->group(function () {
-        Route::get('view/{id}', 'ResponseController@view')->name('view');
-
         Route::post('response', 'ResponseController@response')->name('response');
     });
+
+    Route::get('view/{id}', 'ResponseController@view')->name('view');
 
     Route::post('assign', 'AssignController')->name('assign')->middleware('role:assign_ticket');
 

@@ -23,7 +23,7 @@
                 <div class="form-group">
                     <label> Nombre </label>
                     <input type="text" name="nombre" class="form-control" placeholder="{{ $user->nombre }}"
-                           onkeyup="mayus(this)">
+                           onkeyup="toUpperCase(this)">
 
                     @if ($errors->has('nombre'))
                         <span class="help-block text-danger">
@@ -38,7 +38,7 @@
                     <label> Primer Apellido </label>
                     <input type="text" name="primer_apellido" class="form-control"
                            placeholder="{{ $user->primer_apellido }}"
-                           onkeyup="mayus(this)">
+                           onkeyup="toUpperCase(this)">
 
                     @if ($errors->has('primer_apellido'))
                         <span class="help-block text-danger">
@@ -52,7 +52,7 @@
                     <label> Segundo Apellido </label>
                     <input type="text" name="segundo_apellido" class="form-control"
                            placeholder="{{ $user->segundo_apellido }}"
-                           onkeyup="mayus(this)">
+                           onkeyup="toUpperCase(this)">
 
                     @if ($errors->has('segundo_apellido'))
                         <span class="help-block text-danger">
@@ -110,9 +110,4 @@
             </form>
         </div>
     </div>
-    <script>
-        function mayus(e) {
-            e.value = e.value.toUpperCase();
-        }
-    </script>
 @endsection

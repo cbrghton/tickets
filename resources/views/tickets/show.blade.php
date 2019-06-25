@@ -26,7 +26,9 @@
                         <th>Fecha de Registro</th>
                         <th>Sistema</th>
                         <th>Estado</th>
+                        @role('assign_ticket')
                         <th>Asignado a:</th>
+                        @endrole
                         <th>Acciones</th>
                     </tr>
                     </thead>
@@ -40,7 +42,9 @@
                             <td><span class="label label-{{ $ticket->estatus == 'PENDIENTE' ? "info":"success" }}">
                                     {{ $ticket->estatus }}
                                 </span></td>
+                            @role('assign_ticket')
                             <td>{{ $ticket->userResponse ? $ticket->userResponse->nombre : 'SIN ASIGNAR' }}</td>
+                            @endrole
                             <td class="text-center">
                                 <ul class="icons-list">
                                     <li class="dropdown">
@@ -71,15 +75,15 @@
 
                                             @role('response_ticket')
                                             @if($ticket->estatus == 'PENDIENTE')
-                                            <li>
-                                                <a href="{{ route('ticket.view', ['id' => $ticket->id_encrypt]) }}">
-                                                    <i class="icon-reply position-left"></i> Responder
-                                                </a>
-                                            </li>
+                                                <li>
+                                                    <a href="{{ route('ticket.view', ['id' => $ticket->id_encrypt]) }}">
+                                                        <i class="icon-reply position-left"></i> Responder
+                                                    </a>
+                                                </li>
                                             @endif
                                             @endrole
 
-                                            @if($ticket->estatus == 'RESUELTO' || $ticket->userResponse)
+                                            @if($ticket->estatus == 'RESUELTO' || Auth::user()->hasRole('assign_ticket'))
                                                 <li>
                                                     <a href="{{ route('ticket.view', ['id' => $ticket->id_encrypt]) }}">
                                                         <i class="icon-reply position-left"></i> Ver

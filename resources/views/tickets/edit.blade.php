@@ -27,7 +27,7 @@
                 <div class="form-group">
                     <label>Información adicional:</label>
                     <span class="help-block">Esta información se agregara a la descripción de la incidencia</span>
-                    <textarea rows="5" cols="5" class="form-control" name="incidencia" placeholder="Opcional"></textarea>
+                    <textarea rows="5" cols="5" class="form-control" name="incidencia" placeholder="Opcional" onkeyup="toUpperCase(this)"></textarea>
 
                     @if ($errors->has('incidencia'))
                         <span class="help-block text-danger">

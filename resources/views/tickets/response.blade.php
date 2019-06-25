@@ -48,7 +48,7 @@
 
                 <div class="form-group">
                     <label>Respuesta:</label>
-                    <textarea class="form-control" name="respuesta" placeholder="Respuesta de la solicitud" rows="4"></textarea>
+                    <textarea class="form-control" name="respuesta" placeholder="Respuesta de la solicitud" rows="4" onkeyup="toUpperCase(this)"></textarea>
                 </div>
 
                 <div class="form-group" align="right">

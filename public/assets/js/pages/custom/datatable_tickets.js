@@ -12,8 +12,7 @@ $(function() {
         stateSave: true,
         columnDefs: [{
             orderable: false,
-            width: '100px',
-            targets: [ 6 ]
+            width: '100px'
         }],
         dom: '<"datatable-header"fl><"datatable-scroll"t><"datatable-footer"ip>',
         language: {

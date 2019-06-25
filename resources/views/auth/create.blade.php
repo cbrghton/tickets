@@ -21,7 +21,7 @@
                 <div class="form-group">
                     <label>Nombre</label>
                     <input type="text" name="nombre" class="form-control" placeholder="Nombre"
-                           onkeyup="mayus(this)" required="required">
+                           onkeyup="toUpperCase(this)" required="required">
 
                     @if ($errors->has('nombre'))
                         <span class="help-block text-danger">
@@ -34,7 +34,7 @@
                 <div class="form-group">
                     <label>Primer Apellido</label>
                     <input type="text" name="primer_apellido" class="form-control" placeholder="Primer Apellido"
-                           onkeyup="mayus(this)" required="required">
+                           onkeyup="toUpperCase(this)" required="required">
 
                     @if ($errors->has('primer_apellido'))
                         <span class="help-block text-danger">
@@ -47,7 +47,7 @@
                 <div class="form-group">
                     <label>Segundo Apellido</label>
                     <input type="text" name="segundo_apellido" class="form-control"
-                           placeholder="Segundo Apellido" onkeyup="mayus(this)" required="required">
+                           placeholder="Segundo Apellido" onkeyup="toUpperCase(this)" required="required">
 
                     @if ($errors->has('segundo_apellido'))
                         <span class="help-block text-danger">
@@ -59,7 +59,7 @@
 
                 <div class="form-group">
                     <label>RFC</label>
-                    <input type="text" name="rfc" class="form-control" placeholder="RFC" onkeyup="mayus(this)"
+                    <input type="text" name="rfc" class="form-control" placeholder="RFC" onkeyup="toUpperCase(this)"
                            required="required">
 
                     @if ($errors->has('rfc'))
@@ -122,9 +122,4 @@
             </form>
         </div>
     </div>
-    <script>
-        function mayus(e) {
-            e.value = e.value.toUpperCase();
-        }
-    </script>
 @endsection

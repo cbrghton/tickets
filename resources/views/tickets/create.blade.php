@@ -20,7 +20,7 @@
                 <div class="form-group">
                     <label for="incidencia">Incidencia</label>
                     <textarea class="form-control" name="incidencia" id="incidencia" rows="5" cols="5"
-                              onkeyup="mayus(this)" required="required"></textarea>
+                              onkeyup="toUpperCase(this)" required="required"></textarea>
 
                     @if ($errors->has('incidencia'))
                         <span class="help-block text-danger">
@@ -72,9 +72,4 @@
             </form>
         </div>
     </div>
-    <script>
-        function mayus(e) {
-            e.value = e.value.toUpperCase();
-        }
-    </script>
 @endsection
